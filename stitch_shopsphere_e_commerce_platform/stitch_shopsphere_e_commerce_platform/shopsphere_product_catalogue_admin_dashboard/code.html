@@ -1,0 +1,1310 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary": "#565e74", "surface-dim": "#d9dadb", "on-tertiary-fixed-variant": "#38485d", "surface-container-high": "#e8e8e9", "secondary-container": "#dae2fd", "error": "#ba1a1a", "on-primary": "#ffffff", "outline": "#777587", "tertiary": "#3a495f", "surface-container-highest": "#e2e2e3", "on-secondary": "#ffffff", "inverse-primary": "#c3c0ff", "surface-tint": "#4d44e3", "inverse-surface": "#2f3132", "on-primary-container": "#dad7ff", "surface-bright": "#f9f9fa", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#0b1c30", "on-surface-variant": "#464555", "on-surface": "#1a1c1d", "on-error-container": "#93000a", "secondary-fixed": "#dae2fd", "secondary-fixed-dim": "#bec6e0", "on-secondary-fixed": "#131b2e", "surface": "#f9f9fa", "background": "#f9f9fa", "primary-fixed": "#e2dfff", "on-primary-fixed": "#0f0069", "outline-variant": "#c7c4d8", "on-primary-fixed-variant": "#3323cc", "surface-container-lowest": "#ffffff", "surface-container": "#eeeeef", "inverse-on-surface": "#f0f1f2", "primary-fixed-dim": "#c3c0ff", "tertiary-fixed": "#d3e4fe", "error-container": "#ffdad6", "surface-container-low": "#f3f3f4", "on-secondary-fixed-variant": "#3f465c", "on-background": "#1a1c1d", "on-secondary-container": "#5c647a", "on-tertiary-container": "#ccdcf7", "primary-container": "#4f46e5", "tertiary-container": "#516177", "primary": "#3525cd", "surface-variant": "#e2e2e3", "on-error": "#ffffff", "tertiary-fixed-dim": "#b7c8e1" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "3rem", "margin-mobile": "1.25rem", "space-md": "1rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "space-lg": "1.5rem", "space-xl": "2.5rem" }, "fontFamily": { "label-sm": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-inverse-surface z-50 flex flex-col justify-between text-surface"><div class="flex flex-col"><div class="h-16 px-6 flex items-center justify-between border-b border-surface-container-high/10"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">hub</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-surface tracking-tight leading-none">ShopSphere</span><span class="font-label-sm text-label-sm text-surface-tint mt-0.5 tracking-wider uppercase font-semibold">Admin Console</span></div></div></div><div class="px-4 py-4"><p class="px-3 mb-2 font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-medium">Platform &amp; Catalog</p><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">dashboard</span><span class="">Overview</span></a><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all group bg-primary-container text-on-primary font-semibold shadow-sm" data-path="products" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">package_2</span><span class="flex-1">Products</span><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high/20 text-surface">Live</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="add-product" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">add_circle</span><span class="">Add Product</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="categories" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">account_tree</span><span class="">Categories</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="search-analytics" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">analytics</span><span class="">Search Analytics</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="adsa-performance-lab" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">memory</span><span class="">ADSA Lab</span></div><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-md bg-primary/30 text-on-primary-container font-semibold">BST &amp; AVL</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">settings</span><span class="">Settings</span></a></nav></div></div><div class="p-4 mx-3 mb-4 rounded-xl bg-surface-container-highest/10 border border-surface-container-high/10"><div class="flex items-center gap-2 mb-1"><div class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></div><span class="font-label-sm text-label-sm text-surface font-semibold">Algorithm Index Status</span></div><p class="font-label-sm text-label-sm text-outline-variant leading-snug">BST &amp; AVL Index Synced</p><p class="font-label-sm text-label-sm text-surface-tint mt-1 font-mono">2,840 nodes (&lt;1.2ms)</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-8 flex items-center justify-between border-b border-surface-container-high"><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Console</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="font-label-md text-label-md text-on-surface-variant">Products</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Catalog Management</span></div><div class="flex-1 max-w-md mx-6"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-[18px] text-outline">search</span><input class="w-full h-10 pl-9 pr-4 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-xl border border-surface-container-high focus:outline-none focus:border-primary focus:bg-surface-container-lowest transition-all" placeholder="Quick jump or filter catalog... ⌘K" type="text"></div></div><div class="flex items-center gap-4"><div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/60 text-on-secondary-fixed"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm font-semibold">FastAPI Engine: Active</span></div><button class="relative p-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><button class="p-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><div class="h-6 w-[1px] bg-surface-container-high"></div><div class="flex items-center gap-3 pl-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden xl:flex flex-col text-left"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-tight">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Super Admin</span></div></div></div></header><main class="relative pt-16 w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Dashboard Prototype State Switcher -->
+<div class="w-full bg-surface-container-lowest px-8 py-2.5 sticky top-16 z-30 border-b border-surface-container-high shadow-sm flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Prototype States:</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5" id="prototype-state-bar">
+<button class="state-btn active-state px-3 py-1 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-primary text-on-primary shadow-sm" data-state="normal" onclick="setDashboardState('normal')">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+<span class="">Normal Table</span>
+</button>
+<button class="state-btn px-3 py-1 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface-variant" data-state="modal-edit" onclick="setDashboardState('modal-edit')">
+<span class="material-symbols-outlined text-[15px]">edit_note</span>
+<span class="">Add / Edit Modal</span>
+</button>
+<button class="state-btn px-3 py-1 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface-variant" data-state="modal-delete" onclick="setDashboardState('modal-delete')">
+<span class="material-symbols-outlined text-[15px]">delete_forever</span>
+<span class="">Delete Dialog</span>
+</button>
+<button class="state-btn px-3 py-1 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface-variant" data-state="skeleton" onclick="setDashboardState('skeleton')">
+<span class="material-symbols-outlined text-[15px]">hourglass_empty</span>
+<span class="">Skeletons</span>
+</button>
+<button class="state-btn px-3 py-1 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface-variant" data-state="empty" onclick="setDashboardState('empty')">
+<span class="material-symbols-outlined text-[15px]">folder_off</span>
+<span class="">Empty State</span>
+</button>
+<button class="state-btn px-3 py-1 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface-variant" data-state="validation-error" onclick="setDashboardState('validation-error')">
+<span class="material-symbols-outlined text-[15px]">warning</span>
+<span class="">Validation Alert</span>
+</button>
+<button class="state-btn px-3 py-1 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface-variant" data-state="api-error" onclick="setDashboardState('api-error')">
+<span class="material-symbols-outlined text-[15px]">error</span>
+<span class="">API Error</span>
+</button>
+<button class="px-3 py-1 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface-variant" onclick="toggleToast()">
+<span class="material-symbols-outlined text-[15px]">notifications_active</span>
+<span class="">Trigger Toast</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm font-mono bg-secondary-container text-on-secondary-fixed">
+        FASTAPI AVL_V2.4
+      </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Staging Node</span>
+</div>
+</div>
+<div class="px-8 py-6 space-y-6 max-w-[1560px] mx-auto w-full">
+<!-- Page Header & Key Actions -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-1">
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">Product Catalogue &amp; Index Management</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-semibold border border-outline-variant/30">Production Store</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage physical store items, monitor inventory counts, and synchronize Python BST / AVL search tree partitions.</p>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<button class="h-10 px-4 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-all flex items-center gap-2 shadow-sm border border-surface-container-high active:scale-[0.98]" onclick="triggerTreeSync(this)">
+<span class="material-symbols-outlined text-[18px] text-primary" id="sync-icon">sync</span>
+<span class="font-label-lg text-label-lg font-semibold">Sync Search Trees</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-mono">&lt;1.2ms latency</span>
+</button>
+<button class="h-10 px-4 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-all flex items-center gap-2 shadow-sm border border-surface-container-high active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">file_download</span>
+<span class="font-label-lg text-label-lg font-semibold">Export CSV</span>
+</button>
+<button class="h-10 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary transition-all flex items-center gap-2 shadow-sm active:scale-[0.98] font-semibold" onclick="setDashboardState('modal-edit')">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="font-label-lg text-label-lg">Add Product</span>
+</button>
+</div>
+</div>
+<!-- Overview Metric Cards (4 Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Total Products -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-surface-container-high hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Total Products</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-low font-label-sm text-[10px] text-on-surface-variant font-medium">BST Index</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface mt-1.5 leading-none tracking-tight font-bold">2,840</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high/60 flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Across 4 core categories</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12 this week
+</span>
+</div>
+<div class="mt-1.5 flex items-center gap-1.5 text-[11px] font-label-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Staging BST partition in sync
+</div>
+</div>
+<!-- Card 2: Categories -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-surface-container-high hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Categories</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-low font-label-sm text-[10px] text-on-surface-variant font-medium">Partitions</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface mt-1.5 leading-none tracking-tight font-bold">4 Active</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[22px]">category</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high/60 flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm truncate max-w-[170px]" title="Electronics, Fashion, Home, Accessories">Electronics, Fashion, Home...</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">18 sub-trees</span>
+</div>
+<div class="mt-1.5 flex items-center gap-1.5 text-[11px] font-label-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 4 Root Nodes Synchronized
+</div>
+</div>
+<!-- Card 3: Average Product Price -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-surface-container-high hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Avg Product Price</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-low font-label-sm text-[10px] text-on-surface-variant font-medium">AVL Keys</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface mt-1.5 leading-none tracking-tight font-bold">₹6,840</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high/60 flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Median: ₹4,299 • Max: ₹24.9k</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-mono">INR</span>
+</div>
+<div class="mt-1.5 flex items-center gap-1.5 text-[11px] font-label-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Price Min: ₹2,499 (Audio)
+</div>
+</div>
+<!-- Card 4: Available Products -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-surface-container-high hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Available Stock</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[10px] font-semibold">Healthy</span>
+</div>
+<div class="font-display-lg text-display-lg text-on-surface mt-1.5 leading-none tracking-tight font-bold">2,714 <span class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">Units</span></div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container-high/60 flex items-center justify-between text-on-surface-variant">
+<span class="font-body-sm text-body-sm">95.6% readiness (126 Low/Out)</span>
+<span class="font-label-sm text-label-sm text-on-secondary-fixed font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Operational
+</span>
+</div>
+<div class="mt-1.5 flex items-center gap-1.5 text-[11px] font-label-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span> Zero critical sync backlogs
+</div>
+</div>
+</div>
+<!-- Active Error Callout Banners (conditionally visible via prototype state switcher) -->
+<div class="hidden bg-error-container p-4 rounded-xl text-on-error-container flex items-start justify-between shadow-sm" id="state-validation-banner">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[22px] mt-0.5 text-error">report_problem</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold">Schema &amp; Algorithmic Tree Validation Alert</h2>
+<p class="font-body-sm text-body-sm mt-0.5">Found 2 record anomalies: Product SKU <code>AUD-SP-710</code> has non-conforming tree balance tags, and 1 item has 0 stock quantity without automatic out-of-stock flag sync.</p>
+</div>
+</div>
+<button class="text-on-error-container hover:opacity-70 p-1" onclick="dismissBanner('state-validation-banner')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="hidden bg-surface-container-highest p-4 rounded-xl text-on-surface flex items-start justify-between shadow-sm" id="state-api-banner">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-error flex items-center justify-center text-on-error">
+<span class="material-symbols-outlined text-[18px]">wifi_off</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-error">FastAPI Engine Re-index Latency Timeout (504 Gateway Error)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">The Python background worker took &gt;2500ms to balance AVL height factors on the Fashion subtree partition. The fallback in-memory SQLite mirror is serving catalog lookups.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container" onclick="triggerTreeSync(this)">Retry Sync Now</button>
+<button class="p-1 text-on-surface-variant hover:text-on-surface" onclick="dismissBanner('state-api-banner')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Table Filter & Controls Toolbar -->
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-surface-container-high space-y-3">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-3">
+<!-- Search bar -->
+<div class="flex-1 max-w-xl relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant">search</span>
+<input class="w-full h-10 pl-10 pr-9 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-xl border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" id="catalog-search" oninput="filterTableRows(this.value)" placeholder="Search by Name, SKU, Category, or Node Key..." type="text" value="">
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface" onclick="clearSearch()">
+<span class="material-symbols-outlined text-[16px]">backspace</span>
+</button>
+</div>
+<!-- Filter Dropdowns -->
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Category Filter -->
+<div class="relative">
+<select class="h-10 px-3 pr-8 bg-surface-container-low text-on-surface font-label-md text-label-md rounded-xl border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none cursor-pointer" id="category-filter" onchange="applyFilters()">
+<option value="all">All Categories</option>
+<option value="Electronics">Electronics</option>
+<option value="Fashion">Fashion</option>
+<option value="Home &amp; Living">Home &amp; Living</option>
+<option value="Accessories">Accessories</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Stock Availability Filter -->
+<div class="relative">
+<select class="h-10 px-3 pr-8 bg-surface-container-low text-on-surface font-label-md text-label-md rounded-xl border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none cursor-pointer" id="stock-filter" onchange="applyFilters()">
+<option value="all">All Availability</option>
+<option value="in_stock">In Stock (&gt;10)</option>
+<option value="low_stock">Low Stock (≤10)</option>
+<option value="out_of_stock">Out of Stock (0)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Price Range Filter -->
+<div class="relative">
+<select class="h-10 px-3 pr-8 bg-surface-container-low text-on-surface font-label-md text-label-md rounded-xl border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none cursor-pointer" id="price-filter" onchange="applyFilters()">
+<option value="all">Any Price</option>
+<option value="under5k">Under ₹5,000</option>
+<option value="5to15k">₹5,000 – ₹15,000</option>
+<option value="over15k">₹15,000+</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<!-- Sort Dropdown -->
+<div class="relative">
+<select class="h-10 px-3 pr-8 bg-surface-container-low text-on-surface font-label-md text-label-md rounded-xl border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none cursor-pointer">
+<option>Sorted by: Last Updated (Newest)</option>
+<option>Sorted by: Price (Low to High)</option>
+<option>Sorted by: Price (High to Low)</option>
+<option>Sorted by: Stock Quantity</option>
+<option>Sorted by: AVL Node Index</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[16px] text-on-surface-variant pointer-events-none">sort</span>
+</div>
+</div>
+</div>
+<!-- Active Filters / Status Sub-bar -->
+<div class="flex flex-wrap items-center justify-between pt-2 border-t border-surface-container-high/60 text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-3">
+<span class="font-medium text-on-surface" id="row-count-display">Showing 8 of 2,840 items</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="flex items-center gap-1.5 text-primary font-medium">
+<span class="material-symbols-outlined text-[15px]">account_tree</span>
+Tree Depth: 12 nodes (Balanced AVL)
+</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="text-on-surface-variant font-mono text-[11px]">Sync: Today, 14:38:12 IST</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded-lg hover:bg-surface-container font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1.5 transition-colors border border-surface-container-high" id="select-all-btn" onclick="toggleSelectAll(this)">
+<span class="material-symbols-outlined text-[15px]">select_all</span>
+<span class="">Select All 8</span>
+</button>
+<button class="px-3 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1.5 transition-colors border border-surface-container-high" onclick="batchReindex()">
+<span class="material-symbols-outlined text-[15px] text-primary">dynamic_feed</span>
+<span class="">Batch Re-index</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Management Table Container -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden border border-surface-container-high" id="table-container-normal">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider select-none">
+<th class="py-3.5 px-4 w-10 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" id="header-select-all" onclick="handleHeaderCheckbox(this)" type="checkbox">
+</th>
+<th class="py-3.5 px-4 font-semibold">Product</th>
+<th class="py-3.5 px-4 font-semibold">Category</th>
+<th class="py-3.5 px-4 font-semibold">Price (INR)</th>
+<th class="py-3.5 px-4 font-semibold">Stock &amp; Availability</th>
+<th class="py-3.5 px-4 font-semibold">Tree Node / Index</th>
+<th class="py-3.5 px-4 font-semibold">Last Updated</th>
+<th class="py-3.5 px-4 text-right font-semibold">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 text-body-sm font-body-sm text-on-surface" id="catalog-table-body">
+<!-- Row 1 -->
+<tr class="product-row hover:bg-surface-container-low/60 transition-colors group" data-category="Electronics" data-price="2499" data-stock="in_stock">
+<td class="py-3.5 px-4 text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex-shrink-0 overflow-hidden shadow-inner relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Aura Pro Wireless ANC Over-Ear Headphones in space gray brushed aluminum finish resting on a warm architectural wood surface with soft ambient shadow, editorial high end tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRZesRbO11uwtZymOLZ3BoyCdQI8e3VGSypMp4Fo61xBxyCZUF5ApUKSexErfzQwFzyD7u91uLep90xmATa6xp5HxOkDU2N1CHxhIVHm0ZE2WgMRGywpIdCaZIH_2KQanPwSic7x_jx8WLsD03ElHoeFW702q8M_ysTvw7Najt-56jONqFSG-0HJgiFZdI1y3FJigwCQs7KSntSyQKSLmETrrkoDOjCHKn4JZBHUzdN1Ae7dAPPcKNzg">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openEditModal('Aura Pro Wireless ANC Headphones', 'AUD-WH-904', 2499, 3849, 142, 'Electronics')">Aura Pro Wireless ANC Headphones</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-sm text-[11px] text-on-surface-variant font-semibold">SKU: AUD-WH-904</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">Aura Pro Audio</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-container text-on-secondary-fixed font-semibold">
+                  Electronics
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹2,499</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹3,849</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  In Stock (142 units)
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-mono text-primary font-semibold">AVL Balanced (Key: 2499)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Height Factor: 0 • Depth 3</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Today, 14:22</span>
+<span class="font-label-sm text-label-sm text-outline">by SJ (Admin)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openEditModal('Aura Pro Wireless ANC Headphones', 'AUD-WH-904', 2499, 3849, 142, 'Electronics')" title="Edit Product">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="reindexSingleNode('AUD-WH-904')" title="Sync BST Node">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="openDeleteDialog('Aura Pro Wireless ANC Headphones', 'AUD-WH-904')" title="Delete Product">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="product-row hover:bg-surface-container-low/60 transition-colors group" data-category="Electronics" data-price="12499" data-stock="in_stock">
+<td class="py-3.5 px-4 text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex-shrink-0 overflow-hidden shadow-inner relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Keychron Q1 Pro custom mechanical keyboard with CNC machined navy anodized aluminum frame, PBT keycaps with warm backlight illumination, studio workspace setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxZaQTDkeBghvxDz7udl-GeRAZY5hoAMdrhj4rsnxwt17nv0F8LdjUezWrDMbhhjGkSP0O0p8U5KKrfH4KSJIW4vEo_sp9IeapQjAScSk4GCiWbt3j254pPSU07yyvo1zN93e2r10HTs4DMc5w0dBDKtUdVDHjJ7WPe3EWus92Go2paZhMYGkHtAWm-y7VZ14Y6k8LLUOiJ71slcLF_WVNHfkT1PJ1cbcUQaMG0ysEyShWEA8JAl2Zpw">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openEditModal('Keychron Q1 Pro Mechanical Keyboard', 'ELEC-KB-102', 12499, 14999, 38, 'Electronics')">Keychron Q1 Pro Mechanical Keyboard</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-sm text-[11px] text-on-surface-variant font-semibold">SKU: ELEC-KB-102</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">Keychron Customs</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-container text-on-secondary-fixed font-semibold">
+                  Electronics
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹12,499</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹14,999</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  In Stock (38 units)
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-mono text-primary font-semibold">BST Right Subtree</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Key: 12499 • Depth 5</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Today, 11:08</span>
+<span class="font-label-sm text-label-sm text-outline">by MR (Inventory)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openEditModal('Keychron Q1 Pro Mechanical Keyboard', 'ELEC-KB-102', 12499, 14999, 38, 'Electronics')">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="reindexSingleNode('ELEC-KB-102')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="openDeleteDialog('Keychron Q1 Pro Mechanical Keyboard', 'ELEC-KB-102')">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="product-row hover:bg-surface-container-low/60 transition-colors group" data-category="Electronics" data-price="8999" data-stock="low_stock">
+<td class="py-3.5 px-4 text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex-shrink-0 overflow-hidden shadow-inner relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Chronos Horizon Smart Watch with circular titanium bezel, subtle OLED health metric screen, black fluoroelastomer minimalist strap, clean lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZgb3wuVRewmgxOo-tOghvYI4SPpBHVN7NBAuhNDcLCS6fRn9m7QuWBoLmTbrHRJjaoPWOhEAIDH2gmlwmuuxB9158X4QImofbWAq47RlC0ddqDOK7Dx9gATCjQB12zu1FBFelTvQZa6KKuj1JhZVzJBFixiqGJWrfOc492ZkptCSh_CI8J249XiueKuBmH91Mv-ILYkMQDMkV6j54nZ3E-Lln9grFJ5dm8AxcWi93T5h86X3VLvvK1w">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openEditModal('Chronos Horizon Smart Watch', 'ELEC-WT-881', 8999, 10999, 6, 'Electronics')">Chronos Horizon Smart Watch</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-sm text-[11px] text-on-surface-variant font-semibold">SKU: ELEC-WT-881</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">Chronos Lab</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-container text-on-secondary-fixed font-semibold">
+                  Electronics
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹8,999</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹10,999</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-md text-label-md bg-tertiary-fixed text-on-tertiary-fixed font-semibold">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                  Low Stock (6 units)
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-mono text-tertiary font-semibold">AVL Left Rotate Pending</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Height Factor: +1</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Yesterday, 18:40</span>
+<span class="font-label-sm text-label-sm text-outline">by SJ (Admin)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openEditModal('Chronos Horizon Smart Watch', 'ELEC-WT-881', 8999, 10999, 6, 'Electronics')">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="reindexSingleNode('ELEC-WT-881')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="openDeleteDialog('Chronos Horizon Smart Watch', 'ELEC-WT-881')">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="product-row hover:bg-surface-container-low/60 transition-colors group" data-category="Accessories" data-price="4299" data-stock="in_stock">
+<td class="py-3.5 px-4 text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex-shrink-0 overflow-hidden shadow-inner relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="ErgoGlide Precision Wireless Mouse in matte charcoal texture with metallic thumb scroll wheel, ergonomic contouring on neutral granite desk background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbgJ6jbOjQXauQC6Y72ayLhfybQ7yHAfRdEG5hzwzKaY4e4hpwJKHukJzNw36BBnAD9CETXxSAV4oFTysqLosRs5ErbljJFsDjDwNWJUeL6qDZHZsKy8kyWOwB-ZmDtVL1ux0fBMFgp9wTRf0EjTyoiYLMOZ2PheODehvj-gYFPNrOf6EpmwAe6e8fxPepU2e4NC02Oa56QWrLs3rW0i-133qxAVLAEkDVtcKUt71L2fleFZAu9biBHQ">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openEditModal('ErgoGlide Precision Wireless Mouse', 'ACC-MS-304', 4299, 5499, 95, 'Accessories')">ErgoGlide Precision Wireless Mouse</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-sm text-[11px] text-on-surface-variant font-semibold">SKU: ACC-MS-304</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">ErgoPro Series</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-container text-on-secondary-fixed font-semibold">
+                  Accessories
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹4,299</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹5,499</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  In Stock (95 units)
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-mono text-primary font-semibold">AVL Balanced (Key: 4299)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Height Factor: 0 • Depth 4</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Yesterday, 14:15</span>
+<span class="font-label-sm text-label-sm text-outline">by KK (Ops)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openEditModal('ErgoGlide Precision Wireless Mouse', 'ACC-MS-304', 4299, 5499, 95, 'Accessories')">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="reindexSingleNode('ACC-MS-304')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="openDeleteDialog('ErgoGlide Precision Wireless Mouse', 'ACC-MS-304')">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="product-row hover:bg-surface-container-low/60 transition-colors group" data-category="Home &amp; Living" data-price="3899" data-stock="in_stock">
+<td class="py-3.5 px-4 text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex-shrink-0 overflow-hidden shadow-inner relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Lumina Minimalist Architectural Desk Lamp in matte black sand-cast aluminum with warm diffused LED light bar over linen paper notebook." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3IOnNKusxsSyU_8fGuoBRd4HtM91oBUo6zU8zm-rQHipk3za9SkNiNFKkP0lkSbk5Vqx-FBJfZ8vh_U-p-jrRHFqPWI-4b8Uf6qLBLkVfoboFF2OHTJEmyo6PPa8Fi0yF03Up5q6-KWIxhZaWxWtac0m8JfVHy5LOZfndDMu9xxucqfmGdnDbIWrL8Kr9AUWsQwnapgVwtk2m3bVm67msDkpURsDmF8-Op35-C9u-ZNnufKck_7JitQ">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openEditModal('Lumina Minimalist Architectural Desk Lamp', 'HOME-LP-501', 3899, 4999, 64, 'Home &amp; Living')">Lumina Architectural Desk Lamp</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-sm text-[11px] text-on-surface-variant font-semibold">SKU: HOME-LP-501</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">Lumina Studio</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-container text-on-secondary-fixed font-semibold">
+                  Home &amp; Living
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹3,899</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹4,999</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  In Stock (64 units)
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-mono text-primary font-semibold">BST Left Leaf</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Key: 3899 • Depth 4</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Oct 24, 16:30</span>
+<span class="font-label-sm text-label-sm text-outline">by SJ (Admin)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openEditModal('Lumina Architectural Desk Lamp', 'HOME-LP-501', 3899, 4999, 64, 'Home &amp; Living')">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="reindexSingleNode('HOME-LP-501')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="openDeleteDialog('Lumina Architectural Desk Lamp', 'HOME-LP-501')">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="product-row hover:bg-surface-container-low/60 transition-colors group" data-category="Electronics" data-price="6499" data-stock="out_of_stock">
+<td class="py-3.5 px-4 text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex-shrink-0 overflow-hidden shadow-inner relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="SonicPulse Portable Hi-Fi Bluetooth Speaker with waterproof ballistic fabric mesh, orange accent carabiner, studio studio product lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgkHDio7rYXZ5ARSSfemY92w2B_7uH_zJZjM6g8BGP6SQ4irkFMEInhKAvb-emwc4cb4KwWYupiysPKVjgXZZSE-eyIDtskYZ4QxH85D_LLypcUcuf3MKmsWxo3f2UKv2v666GLEB7MP04gYOPqpcrgL8dT3XbN7D8BFsYohAS4A_PKOcEUpaxWA_9GTvA26PrkcyQUA6tcdthG3y4gpMEPAkxq-xZge76umo8xWm2Poi96ZDUGGP4mA">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openEditModal('SonicPulse Portable Hi-Fi Speaker', 'AUD-SP-710', 6499, 7999, 0, 'Electronics')">SonicPulse Portable Hi-Fi Speaker</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-sm text-[11px] text-on-surface-variant font-semibold">SKU: AUD-SP-710</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">SonicPulse Audio</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-container text-on-secondary-fixed font-semibold">
+                  Electronics
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹6,499</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹7,999</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-md text-label-md bg-error-container text-on-error-container font-semibold">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                  Out of Stock (0 units)
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-mono text-error font-semibold">AVL Node Pruned</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Zero Quantity Branch</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Oct 23, 09:12</span>
+<span class="font-label-sm text-label-sm text-outline">by System Autocheck</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openEditModal('SonicPulse Portable Hi-Fi Speaker', 'AUD-SP-710', 6499, 7999, 0, 'Electronics')">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="reindexSingleNode('AUD-SP-710')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="openDeleteDialog('SonicPulse Portable Hi-Fi Speaker', 'AUD-SP-710')">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="product-row hover:bg-surface-container-low/60 transition-colors group" data-category="Fashion" data-price="7999" data-stock="in_stock">
+<td class="py-3.5 px-4 text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex-shrink-0 overflow-hidden shadow-inner relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Strata Swift Carbon Running Shoes in off-white technical breathable mesh with aerodynamic carbon sole plate detail, studio shot on white pedestal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn0TX5jQydpqqRwX2t2-xChlqsL9_QBtn-2WNAHQKGdVpZCFEQLvKG-b_W6GXUcb8Go9og59JWpsm9FxdpK-1rQshgZt-cuY1H5-ZKeieivernjIUTI9uFeBE5EOIE6iy-vwV-_E_rRp7ZHkaMlduzmvI9wXuMt9qoP6RQIosZeCq8QsLBKGGtks1wxdemGD17RBO-u_9s9M5Aa2EhT_jA_rk1zI3HQPhOy1wjkL09oAUmaj7uh_apfQ">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openEditModal('Strata Swift Carbon Running Shoes', 'FASH-SH-209', 7999, 9999, 52, 'Fashion')">Strata Swift Carbon Running Shoes</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-sm text-[11px] text-on-surface-variant font-semibold">SKU: FASH-SH-209</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">Strata Athletics</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-container text-on-secondary-fixed font-semibold">
+                  Fashion
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹7,999</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹9,999</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  In Stock (52 units)
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-mono text-primary font-semibold">AVL Balanced (Key: 7999)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Height Factor: 0 • Depth 3</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Oct 22, 17:50</span>
+<span class="font-label-sm text-label-sm text-outline">by MR (Inventory)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openEditModal('Strata Swift Carbon Running Shoes', 'FASH-SH-209', 7999, 9999, 52, 'Fashion')">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="reindexSingleNode('FASH-SH-209')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="openDeleteDialog('Strata Swift Carbon Running Shoes', 'FASH-SH-209')">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="product-row hover:bg-surface-container-low/60 transition-colors group" data-category="Accessories" data-price="5799" data-stock="in_stock">
+<td class="py-3.5 px-4 text-center">
+<input class="row-checkbox w-4 h-4 rounded text-primary focus:ring-primary/30 cursor-pointer" type="checkbox">
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex-shrink-0 overflow-hidden shadow-inner relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Nomad All-Weather Travel Backpack in weatherproof matte slate gray cordura fabric with magnetic Fidlock clasps, standing upright." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9j3whTMEvk2nKhXF-aiaFFTMnwAXIYrFRAib01paeL5K_3RbWzaIFULaXmpf56OYX22lqkfvQOT1l4MYFUmznVACQ2Ows7w5Wosfi1VowfgyQLFlu-T-H6418gvbm6TLBsemZdO3QbDNDU1L2wcWjV5IZ9N2r5W7u_0rf73li5d3Z0mWPzoZK1NGhTav5BuGRZSfgJkWCFi3DCR0t5b88ZimRUxnDGWOj607hV_wPQ9NrH-B5aHYPeg">
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate hover:text-primary cursor-pointer" onclick="openEditModal('Nomad All-Weather Travel Backpack', 'ACC-BP-440', 5799, 6999, 118, 'Accessories')">Nomad All-Weather Travel Backpack</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-sm text-[11px] text-on-surface-variant font-semibold">SKU: ACC-BP-440</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">Nomad Gear Co</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-container text-on-secondary-fixed font-semibold">
+                  Accessories
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹5,799</span>
+<span class="font-label-sm text-label-sm text-outline line-through">₹6,999</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  In Stock (118 units)
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-mono text-primary font-semibold">BST Balanced Internal Node</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Key: 5799 • Left: 4299, Right: 6499</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Oct 20, 11:24</span>
+<span class="font-label-sm text-label-sm text-outline">by SJ (Admin)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openEditModal('Nomad All-Weather Travel Backpack', 'ACC-BP-440', 5799, 6999, 118, 'Accessories')">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="reindexSingleNode('ACC-BP-440')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container transition-colors" onclick="openDeleteDialog('Nomad All-Weather Travel Backpack', 'ACC-BP-440')">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Table Footer -->
+<div class="p-4 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-4 font-label-md text-label-md text-on-surface-variant select-none">
+<div class="flex items-center gap-3">
+<span class="">Showing <strong class="text-on-surface font-semibold">1 to 8</strong> of <strong class="text-on-surface font-semibold">2,840</strong> items</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<div class="flex items-center gap-1.5">
+<span class="">Rows:</span>
+<select class="h-8 px-2 bg-surface-container-lowest rounded-lg border-0 text-on-surface font-semibold focus:ring-1 focus:ring-primary">
+<option>8 per page</option>
+<option>20 per page</option>
+<option>50 per page</option>
+<option>100 per page</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant disabled:opacity-40 flex items-center gap-1" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span class="">Previous</span>
+</button>
+<div class="flex items-center gap-1">
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary font-semibold">1</button>
+<button class="w-9 h-9 rounded-lg hover:bg-surface-container text-on-surface font-semibold">2</button>
+<button class="w-9 h-9 rounded-lg hover:bg-surface-container text-on-surface font-semibold">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-9 h-9 rounded-lg hover:bg-surface-container text-on-surface font-semibold">355</button>
+</div>
+<button class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold flex items-center gap-1">
+<span class="">Next</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Skeletons State View (conditionally toggled) -->
+<div class="hidden bg-surface-container-lowest rounded-2xl shadow-sm p-6 space-y-4" id="table-container-skeleton">
+<div class="flex items-center justify-between">
+<div class="h-6 w-48 bg-surface-container-high rounded-md animate-pulse"></div>
+<div class="h-8 w-32 bg-surface-container-high rounded-md animate-pulse"></div>
+</div>
+<div class="space-y-3 pt-2">
+<div class="h-12 w-full bg-surface-container rounded-xl animate-pulse"></div>
+<div class="h-12 w-full bg-surface-container-low rounded-xl animate-pulse"></div>
+<div class="h-12 w-full bg-surface-container rounded-xl animate-pulse"></div>
+<div class="h-12 w-full bg-surface-container-low rounded-xl animate-pulse"></div>
+<div class="h-12 w-full bg-surface-container rounded-xl animate-pulse"></div>
+<div class="h-12 w-full bg-surface-container-low rounded-xl animate-pulse"></div>
+</div>
+<div class="flex items-center justify-between pt-4">
+<div class="h-5 w-40 bg-surface-container-high rounded-md animate-pulse"></div>
+<div class="h-8 w-64 bg-surface-container-high rounded-md animate-pulse"></div>
+</div>
+</div>
+<!-- Empty Catalogue State View (conditionally toggled) -->
+<div class="hidden bg-surface-container-lowest rounded-2xl shadow-sm p-16 text-center" id="table-container-empty">
+<div class="max-w-md mx-auto flex flex-col items-center">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-outline mb-4">
+<span class="material-symbols-outlined text-[36px]">inventory_2</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">No Products Match Your Criteria</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">There are currently no items indexed in the selected category or partition. Try clearing the active search filter or add a fresh catalogue node.</p>
+<div class="flex items-center gap-3 mt-6">
+<button class="h-11 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high font-label-lg text-label-lg text-on-surface transition-colors" onclick="clearAllFilters()">
+            Reset Filters
+          </button>
+<button class="h-11 px-5 rounded-xl bg-primary hover:bg-primary-container font-label-lg text-label-lg text-on-primary transition-colors flex items-center gap-1.5" onclick="setDashboardState('modal-edit')">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            Add New Product
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL 1: Add / Edit Product Slide-Over / Dialog Modal -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto hidden" id="edit-product-modal">
+<div class="bg-surface-container-lowest rounded-2xl shadow-2xl w-full max-w-3xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="p-6 bg-surface-container-low flex items-start justify-between border-b border-surface-container-high">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider">FastAPI Index Synchronizer</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">NODE_HASH: #904_AVL</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1" id="modal-title">Edit Product: Aura Pro Wireless ANC Headphones</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Update product attributes. Changes will automatically re-balance AVL price trees and BST name search indexes in &lt;2ms.</p>
+</div>
+<button class="p-2 rounded-xl hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="closeEditModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Form Body -->
+<div class="p-6 space-y-5 max-h-[72vh] overflow-y-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- SKU / Product ID -->
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Product ID / SKU *</label>
+<input class="w-full h-11 px-3.5 bg-surface-container-low font-mono font-bold text-on-surface text-body-md rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20" id="form-sku" type="text" value="AUD-WH-904">
+<p class="font-label-sm text-[11px] text-outline mt-1">Must be unique and follow [CAT]-[TYPE]-[NUM] pattern.</p>
+</div>
+<!-- Product Name -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant">Product Name *</label>
+<span class="font-label-sm text-[11px] text-outline">43 / 80 chars</span>
+</div>
+<input class="w-full h-11 px-3.5 bg-surface-container-low text-on-surface text-body-md rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20" id="form-name" type="text" value="Aura Pro Wireless ANC Over-Ear Headphones">
+</div>
+<!-- Category Selection -->
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Category Subtree *</label>
+<select class="w-full h-11 px-3.5 bg-surface-container-low text-on-surface text-body-md rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer" id="form-category">
+<option selected="" value="Electronics">Electronics &gt; Audio &amp; Headphones</option>
+<option value="Fashion">Fashion &gt; Performance Wear</option>
+<option value="Home &amp; Living">Home &amp; Living &gt; Lighting</option>
+<option value="Accessories">Accessories &gt; Daily Tech Carry</option>
+</select>
+</div>
+<!-- Availability Radio / Pills -->
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Availability Status</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="flex items-center justify-center gap-1.5 h-11 rounded-xl bg-surface-container-low cursor-pointer has-[:checked]:bg-secondary-fixed has-[:checked]:text-on-secondary-fixed font-label-md text-label-md font-semibold text-on-surface-variant">
+<input checked="" class="hidden" name="availability" type="radio" value="in_stock">
+<span class="">In Stock</span>
+</label>
+<label class="flex items-center justify-center gap-1.5 h-11 rounded-xl bg-surface-container-low cursor-pointer has-[:checked]:bg-tertiary-fixed has-[:checked]:text-on-tertiary-fixed font-label-md text-label-md font-semibold text-on-surface-variant">
+<input class="hidden" name="availability" type="radio" value="low_stock">
+<span class="">Low</span>
+</label>
+<label class="flex items-center justify-center gap-1.5 h-11 rounded-xl bg-surface-container-low cursor-pointer has-[:checked]:bg-error-container has-[:checked]:text-on-error-container font-label-md text-label-md font-semibold text-on-surface-variant">
+<input class="hidden" name="availability" type="radio" value="out_of_stock">
+<span class="">Out</span>
+</label>
+</div>
+</div>
+<!-- Price & Comparison Price -->
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Price (INR ₹) *</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-bold text-on-surface-variant">₹</span>
+<input class="w-full h-11 pl-8 pr-3.5 bg-surface-container-low text-on-surface font-headline-sm text-headline-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20" id="form-price" type="number" value="2499">
+</div>
+<p class="font-label-sm text-[11px] text-outline mt-1">Acts as the balancing Key node in AVL tree partition.</p>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">MSRP / Comparison Price (INR ₹)</label>
+<div class="relative">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 font-bold text-on-surface-variant">₹</span>
+<input class="w-full h-11 pl-8 pr-3.5 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20" id="form-compare-price" type="number" value="3849">
+</div>
+</div>
+<!-- Stock Quantity & Low Threshold -->
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Stock Quantity (Units)</label>
+<input class="w-full h-11 px-3.5 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20" id="form-stock" type="number" value="142">
+</div>
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Low Stock Threshold Warning</label>
+<input class="w-full h-11 px-3.5 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20" type="number" value="15">
+</div>
+</div>
+<!-- Product Image Preview & URL -->
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Product Media Asset</label>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded-xl">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high overflow-hidden shadow-inner flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Aura Pro Wireless ANC Over-Ear Headphones thumbnail in aluminum space gray finish on minimal clean catalog studio layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAgsjoEZKU4Ggv7mshpNEa4gN6LPgvUiCLmVxlI_plkwOxB2Yx3bOiS1XFTfc1CBLt1dDa7hXOMYTPFmn0JCfE8u8ghEjBEnfwZq4ffIdn69sP2QjqtQFnaFB8S9-vL69czWt33IjHkJEfRhkZHz5IT7KqgcF0rqj5d1BYP060ATIDImbgKXquT7JQ6wlbz3LjvDIoSwUdDFlbTBsry_MLahKeo8BXEuADlZHY_NB2fOqiPtlbLacUzg">
+</div>
+<div class="flex-1 min-w-0">
+<input class="w-full h-9 px-3 bg-surface-container-lowest font-mono text-label-sm text-on-surface rounded-lg focus:outline-none" type="text" value="https://assets.shopsphere.internal/cdn/products/aud-wh-904-pro.webp">
+<div class="flex items-center gap-2 mt-1.5">
+<button class="font-label-sm text-label-sm font-semibold text-primary hover:underline" type="button">Replace Media URL</button>
+<span class="text-outline">•</span>
+<button class="font-label-sm text-label-sm font-semibold text-on-surface-variant hover:text-on-surface" type="button">Upload Local WEBP</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Description -->
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Product Summary / Editorial Description</label>
+<textarea class="w-full p-3.5 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20" rows="3">Hybrid Active Noise Cancellation, custom 40mm Beryllium acoustic drivers, 45-hour continuous battery life with quick charge capability. Designed for lossless audiophile streaming and travel endurance.</textarea>
+</div>
+<!-- Keywords & Search Index Tags -->
+<div>
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1">Search Keywords / Tree Index Tags</label>
+<input class="w-full h-11 px-3.5 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20" type="text" value="headphones, wireless, anc, bluetooth, audio, beryllium, lossless, studio">
+<p class="font-label-sm text-[11px] text-outline mt-1">Comma-separated terms will generate BST substring prefix traversal indices.</p>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-6 bg-surface-container-low flex items-center justify-between border-t border-surface-container-high">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span class="">FastAPI AVL Rebalance hook triggered on commit</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-11 px-5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-colors" onclick="closeEditModal()">
+            Cancel
+          </button>
+<button class="h-11 px-6 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md transition-all flex items-center gap-2 active:scale-[0.98]" id="save-product-btn" onclick="saveProductAndReindex()">
+<span class="material-symbols-outlined text-[18px]">cloud_sync</span>
+<span class="">Save &amp; Re-Index Product</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL 2: Delete Confirmation Dialog -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" id="delete-product-modal">
+<div class="bg-surface-container-lowest rounded-2xl shadow-2xl max-w-lg w-full p-6 animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-error-container text-on-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[28px] text-error">shield_with_heart</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold uppercase">Irreversible Node Purge</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface mt-1">Delete Product &amp; Remove From Search Trees?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">
+            Are you sure you want to delete <strong class="text-on-surface" id="delete-product-name">Aura Pro Wireless ANC Headphones</strong> (<code class="font-mono text-primary font-semibold" id="delete-product-sku">SKU: AUD-WH-904</code>)?
+          </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 bg-surface-container-low p-3 rounded-xl border border-surface-container-high">
+            This action will purge this node from the live SQLite database, recalculate AVL height factors, and prune references from in-memory Python prefix trees immediately.
+          </p>
+<div class="mt-4">
+<label class="block font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Type <span class="text-error font-mono font-bold">DELETE</span> to confirm purge:</label>
+<input class="w-full h-11 px-3.5 bg-surface-container-low text-on-surface font-mono text-body-md rounded-xl focus:outline-none focus:ring-2 focus:ring-error/30" id="delete-confirm-input" oninput="handleDeleteInputChange(this.value)" placeholder="DELETE" type="text">
+</div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-end gap-3 pt-4 border-t border-surface-container-high">
+<button class="h-11 px-5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-colors" onclick="closeDeleteDialog()">
+          Cancel
+        </button>
+<button class="h-11 px-5 rounded-xl bg-error hover:bg-on-error-container text-on-error font-label-lg text-label-lg transition-all flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed" disabled="" id="confirm-delete-btn" onclick="executeDelete()">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+<span class="">Delete &amp; Rebalance Tree</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Floating Feedback / Toast Notification (Bottom Right) -->
+<div class="fixed bottom-6 right-6 z-50 transition-all duration-300 translate-y-24 opacity-0 pointer-events-none" id="toast-notification">
+<div class="bg-inverse-surface text-surface rounded-2xl p-4 shadow-2xl flex items-start gap-3.5 max-w-md border border-surface-container-high/20">
+<div class="w-9 h-9 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-semibold text-surface">Catalog Re-indexed</span>
+<span class="font-mono text-[11px] text-surface-tint">0.84ms</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-dim mt-0.5">2,840 nodes successfully balanced in AVL search tree partition. Ready for client lookups.</p>
+</div>
+<button class="text-surface-dim hover:text-surface p-1" onclick="hideToast()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Prototype State Switcher Controller
+  function setDashboardState(state) {
+    // Update Button Active Stylings
+    const buttons = document.querySelectorAll('#prototype-state-bar .state-btn');
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-state') === state) {
+        btn.className = 'state-btn active-state px-3 py-1.5 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-primary text-on-primary shadow-sm';
+      } else {
+        btn.className = 'state-btn px-3 py-1.5 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant';
+      }
+    });
+
+    const normalTable = document.getElementById('table-container-normal');
+    const skeletonTable = document.getElementById('table-container-skeleton');
+    const emptyTable = document.getElementById('table-container-empty');
+    const validationBanner = document.getElementById('state-validation-banner');
+    const apiBanner = document.getElementById('state-api-banner');
+    const editModal = document.getElementById('edit-product-modal');
+    const deleteModal = document.getElementById('delete-product-modal');
+
+    // Reset modals
+    editModal.classList.add('hidden');
+    deleteModal.classList.add('hidden');
+
+    // Handle view switches
+    if (state === 'normal') {
+      normalTable.classList.remove('hidden');
+      skeletonTable.classList.add('hidden');
+      emptyTable.classList.add('hidden');
+      validationBanner.classList.add('hidden');
+      apiBanner.classList.add('hidden');
+    } else if (state === 'modal-edit') {
+      normalTable.classList.remove('hidden');
+      skeletonTable.classList.add('hidden');
+      emptyTable.classList.add('hidden');
+      editModal.classList.remove('hidden');
+    } else if (state === 'modal-delete') {
+      normalTable.classList.remove('hidden');
+      skeletonTable.classList.add('hidden');
+      emptyTable.classList.add('hidden');
+      deleteModal.classList.remove('hidden');
+    } else if (state === 'skeleton') {
+      normalTable.classList.add('hidden');
+      skeletonTable.classList.remove('hidden');
+      emptyTable.classList.add('hidden');
+      validationBanner.classList.add('hidden');
+      apiBanner.classList.add('hidden');
+    } else if (state === 'empty') {
+      normalTable.classList.add('hidden');
+      skeletonTable.classList.add('hidden');
+      emptyTable.classList.remove('hidden');
+      validationBanner.classList.add('hidden');
+      apiBanner.classList.add('hidden');
+    } else if (state === 'validation-error') {
+      normalTable.classList.remove('hidden');
+      skeletonTable.classList.add('hidden');
+      emptyTable.classList.add('hidden');
+      validationBanner.classList.remove('hidden');
+      apiBanner.classList.add('hidden');
+    } else if (state === 'api-error') {
+      normalTable.classList.remove('hidden');
+      skeletonTable.classList.add('hidden');
+      emptyTable.classList.add('hidden');
+      validationBanner.classList.add('hidden');
+      apiBanner.classList.remove('hidden');
+    }
+  }
+
+  // Modal Handlers
+  function openEditModal(name, sku, price, comparePrice, stock, category) {
+    document.getElementById('modal-title').innerText = 'Edit Product: ' + name;
+    document.getElementById('form-name').value = name;
+    document.getElementById('form-sku').value = sku;
+    document.getElementById('form-price').value = price;
+    document.getElementById('form-compare-price').value = comparePrice;
+    document.getElementById('form-stock').value = stock;
+    document.getElementById('form-category').value = category;
+    document.getElementById('edit-product-modal').classList.remove('hidden');
+  }
+
+  function closeEditModal() {
+    document.getElementById('edit-product-modal').classList.add('hidden');
+  }
+
+  function openDeleteDialog(name, sku) {
+    document.getElementById('delete-product-name').innerText = name;
+    document.getElementById('delete-product-sku').innerText = 'SKU: ' + sku;
+    document.getElementById('delete-confirm-input').value = '';
+    document.getElementById('confirm-delete-btn').disabled = true;
+    document.getElementById('delete-product-modal').classList.remove('hidden');
+  }
+
+  function closeDeleteDialog() {
+    document.getElementById('delete-product-modal').classList.add('hidden');
+  }
+
+  function handleDeleteInputChange(val) {
+    const btn = document.getElementById('confirm-delete-btn');
+    if (val.trim() === 'DELETE') {
+      btn.disabled = false;
+    } else {
+      btn.disabled = true;
+    }
+  }
+
+  function executeDelete() {
+    closeDeleteDialog();
+    showToastNotification('Product Removed & Tree Rebalanced', 'Node purged from BST & AVL in-memory index (<0.42ms).');
+  }
+
+  function saveProductAndReindex() {
+    const saveBtn = document.getElementById('save-product-btn');
+    saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Rebalancing AVL...';
+    setTimeout(() => {
+      saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">cloud_sync</span> Save & Re-Index Product';
+      closeEditModal();
+      showToastNotification('Product Saved & Tree Indexed', 'FastAPI worker recalculated AVL height factor (Tree Depth: 12).');
+    }, 600);
+  }
+
+  // Toast System
+  let toastTimer = null;
+  function showToastNotification(title, message) {
+    const toast = document.getElementById('toast-notification');
+    if (title) toast.querySelector('.font-headline-sm').innerText = title;
+    if (message) toast.querySelector('.font-body-sm').innerText = message;
+    toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(hideToast, 4000);
+  }
+
+  function toggleToast() {
+    const toast = document.getElementById('toast-notification');
+    if (toast.classList.contains('opacity-0')) {
+      showToastNotification('Manual Trigger', 'BST nodes synchronized across 4 cores.');
+    } else {
+      hideToast();
+    }
+  }
+
+  function hideToast() {
+    const toast = document.getElementById('toast-notification');
+    toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+  }
+
+  function dismissBanner(bannerId) {
+    document.getElementById(bannerId).classList.add('hidden');
+  }
+
+  // Sync Search Trees trigger
+  function triggerTreeSync(btn) {
+    const icon = document.getElementById('sync-icon');
+    icon.classList.add('animate-spin');
+    setTimeout(() => {
+      icon.classList.remove('animate-spin');
+      showToastNotification('Search Trees Synchronized', '2,840 nodes verified with 0 skew errors (0.84ms execution).');
+    }, 700);
+  }
+
+  function reindexSingleNode(sku) {
+    showToastNotification('Node Re-indexed: ' + sku, 'Single-node lookup path updated in memory.');
+  }
+
+  function batchReindex() {
+    showToastNotification('Batch Re-index Complete', 'Selected catalog partition rebuilt in AVL tree.');
+  }
+
+  // Filter Table Logic
+  function filterTableRows(searchQuery) {
+    applyFilters();
+  }
+
+  function clearSearch() {
+    document.getElementById('catalog-search').value = '';
+    applyFilters();
+  }
+
+  function clearAllFilters() {
+    document.getElementById('catalog-search').value = '';
+    document.getElementById('category-filter').value = 'all';
+    document.getElementById('stock-filter').value = 'all';
+    document.getElementById('price-filter').value = 'all';
+    setDashboardState('normal');
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('catalog-search').value.toLowerCase();
+    const category = document.getElementById('category-filter').value;
+    const stock = document.getElementById('stock-filter').value;
+    const priceRange = document.getElementById('price-filter').value;
+
+    const rows = document.querySelectorAll('#catalog-table-body .product-row');
+    let visibleCount = 0;
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      const rowCat = row.getAttribute('data-category');
+      const rowStock = row.getAttribute('data-stock');
+      const rowPrice = parseInt(row.getAttribute('data-price'), 10);
+
+      let matchesSearch = query === '' || text.includes(query);
+      let matchesCat = category === 'all' || rowCat === category;
+      let matchesStock = stock === 'all' || rowStock === stock;
+      let matchesPrice = true;
+
+      if (priceRange === 'under5k') matchesPrice = rowPrice < 5000;
+      else if (priceRange === '5to15k') matchesPrice = rowPrice >= 5000 && rowPrice <= 15000;
+      else if (priceRange === 'over15k') matchesPrice = rowPrice > 15000;
+
+      if (matchesSearch && matchesCat && matchesStock && matchesPrice) {
+        row.style.display = '';
+        visibleCount++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    document.getElementById('row-count-display').innerText = `Showing ${visibleCount} of 2,840 items`;
+  }
+
+  // Checkbox management
+  function handleHeaderCheckbox(master) {
+    const checkboxes = document.querySelectorAll('.row-checkbox');
+    checkboxes.forEach(cb => {
+      cb.checked = master.checked;
+    });
+  }
+
+  function toggleSelectAll(btn) {
+    const headerCb = document.getElementById('header-select-all');
+    headerCb.checked = !headerCb.checked;
+    handleHeaderCheckbox(headerCb);
+  }
+</script></main></div>
+
+</body></html>

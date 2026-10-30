@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary": "#565e74", "surface-dim": "#d9dadb", "on-tertiary-fixed-variant": "#38485d", "surface-container-high": "#e8e8e9", "secondary-container": "#dae2fd", "error": "#ba1a1a", "on-primary": "#ffffff", "outline": "#777587", "tertiary": "#3a495f", "surface-container-highest": "#e2e2e3", "on-secondary": "#ffffff", "inverse-primary": "#c3c0ff", "surface-tint": "#4d44e3", "inverse-surface": "#2f3132", "on-primary-container": "#dad7ff", "surface-bright": "#f9f9fa", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#0b1c30", "on-surface-variant": "#464555", "on-surface": "#1a1c1d", "on-error-container": "#93000a", "secondary-fixed": "#dae2fd", "secondary-fixed-dim": "#bec6e0", "on-secondary-fixed": "#131b2e", "surface": "#f9f9fa", "background": "#f9f9fa", "primary-fixed": "#e2dfff", "on-primary-fixed": "#0f0069", "outline-variant": "#c7c4d8", "on-primary-fixed-variant": "#3323cc", "surface-container-lowest": "#ffffff", "surface-container": "#eeeeef", "inverse-on-surface": "#f0f1f2", "primary-fixed-dim": "#c3c0ff", "tertiary-fixed": "#d3e4fe", "error-container": "#ffdad6", "surface-container-low": "#f3f3f4", "on-secondary-fixed-variant": "#3f465c", "on-background": "#1a1c1d", "on-secondary-container": "#5c647a", "on-tertiary-container": "#ccdcf7", "primary-container": "#4f46e5", "tertiary-container": "#516177", "primary": "#3525cd", "surface-variant": "#e2e2e3", "on-error": "#ffffff", "tertiary-fixed-dim": "#b7c8e1" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "3rem", "margin-mobile": "1.25rem", "space-md": "1rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "space-lg": "1.5rem", "space-xl": "2.5rem" }, "fontFamily": { "label-sm": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-inverse-surface z-50 flex flex-col justify-between text-surface"><div class="flex flex-col"><div class="h-16 px-6 flex items-center justify-between border-b border-surface-container-high/10"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]">hub</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-surface tracking-tight leading-none">ShopSphere</span><span class="font-label-sm text-label-sm text-surface-tint mt-0.5 tracking-wider uppercase font-semibold">Admin Console</span></div></div></div><div class="px-4 py-4"><p class="px-3 mb-2 font-label-sm text-label-sm uppercase tracking-wider text-outline-variant font-medium">Platform &amp; Catalog</p><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">dashboard</span><span>Overview</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="products" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">package_2</span><span class="flex-1">Products</span><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high/20 text-surface">Live</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="add-product" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">add_circle</span><span>Add Product</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="categories" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">account_tree</span><span>Categories</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="search-analytics" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">analytics</span><span>Search Analytics</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="adsa-performance-lab" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">memory</span><span>ADSA Lab</span></div><span class="font-label-sm text-label-sm px-2 py-0.5 rounded-md bg-primary/30 text-on-primary-container font-semibold">BST &amp; AVL</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-outline-variant hover:bg-surface-variant/20 hover:text-surface transition-all group font-label-lg text-label-lg" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-surface">settings</span><span>Settings</span></a></nav></div></div><div class="p-4 mx-3 mb-4 rounded-xl bg-surface-container-highest/10 border border-surface-container-high/10"><div class="flex items-center gap-2 mb-1"><div class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></div><span class="font-label-sm text-label-sm text-surface font-semibold">Algorithm Index Status</span></div><p class="font-label-sm text-label-sm text-outline-variant leading-snug">BST &amp; AVL Index Synced</p><p class="font-label-sm text-label-sm text-surface-tint mt-1 font-mono">2,840 nodes (&lt;1.2ms)</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-8 flex items-center justify-between border-b border-surface-container-high"><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant">Console</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="font-label-md text-label-md text-on-surface-variant">Products</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="font-label-md text-label-md text-on-surface font-semibold">Catalog Management</span></div><div class="flex-1 max-w-md mx-6"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-[18px] text-outline">search</span><input class="w-full h-10 pl-9 pr-4 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-xl border border-surface-container-high focus:outline-none focus:border-primary focus:bg-surface-container-lowest transition-all" placeholder="Quick jump or filter catalog... ⌘K" type="text"/></div></div><div class="flex items-center gap-4"><div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/60 text-on-secondary-fixed"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm font-semibold">FastAPI Engine: Active</span></div><button class="relative p-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><button class="p-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><div class="h-6 w-[1px] bg-surface-container-high"></div><div class="flex items-center gap-3 pl-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden xl:flex flex-col text-left"><span class="font-label-sm text-label-sm font-semibold text-on-surface leading-tight">Sarah Jenkins</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Super Admin</span></div></div></div></header><main class="relative pt-16 w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient glow behind top bar -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-24 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-12 right-12 w-80 h-80 bg-secondary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="px-8 py-6 space-y-6 max-w-[1600px] mx-auto w-full">
+<!-- Breadcrumb Bar & Viewport Top Level Indicator -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium tracking-wide uppercase">Engine Diagnostics</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">ADSA Lab</span>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">chevron_right</span>
+<span class="font-label-md text-label-md text-primary font-semibold">BST vs AVL Comparative Index Benchmark</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">ADSA Performance Lab</h1>
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">terminal</span>
+              FastAPI Engine Python 3.12
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/60 text-on-secondary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Live Memory Profiler Active
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Explore the runtime difference between naive Unbalanced Binary Search Trees and self-balancing Height-Partitioned AVL Trees when indexing high-throughput catalog keys.
+          </p>
+</div>
+<!-- Interactive Prototype Mode Switcher -->
+<div class="flex items-center gap-1.5 p-1.5 bg-surface-container rounded-2xl shadow-sm overflow-x-auto max-w-full">
+<button class="px-3.5 py-1.5 rounded-xl font-label-md text-label-md font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center gap-1.5" id="mode-benchmark" onclick="switchLabMode('benchmark')">
+<span class="material-symbols-outlined text-[16px]">bar_chart</span>
+<span>Benchmark Results (Active)</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-xl font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5" id="mode-trace" onclick="switchLabMode('trace')">
+<span class="material-symbols-outlined text-[16px]">route</span>
+<span>Live Trace Demo (N=23)</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-xl font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5" id="mode-inflight" onclick="switchLabMode('inflight')">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+<span>In-Flight Profiler</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-xl font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5" id="mode-skew" onclick="switchLabMode('skew')">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span>Degenerate Skew Mode</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-xl font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5" id="mode-error" onclick="switchLabMode('error')">
+<span class="material-symbols-outlined text-[16px]">sync_problem</span>
+<span>API Error Simulation</span>
+</button>
+</div>
+</div>
+<!-- Error State Banner (Hidden by default) -->
+<div class="hidden p-4 rounded-2xl bg-error-container text-on-error-container shadow-md flex items-start justify-between gap-4" id="error-banner">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[24px] text-error mt-0.5">warning</span>
+<div>
+<p class="font-headline-sm text-headline-sm font-semibold">FastAPI Engine Socket Disconnected (503 Service Unavailable)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Worker thread pool on `/api/v2/adsa/benchmark` hit recursion depth limit (1000 nodes on skewed BST without tail call optimization). Reconnection attempts in progress.</p>
+</div>
+</div>
+<button class="px-3 py-1.5 bg-surface-container-lowest text-error rounded-xl font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-all" onclick="switchLabMode('benchmark')">
+          Dismiss &amp; Recover
+        </button>
+</div>
+<!-- In-Flight State Banner (Hidden by default) -->
+<div class="hidden p-4 rounded-2xl bg-primary-fixed text-on-primary-fixed-variant shadow-md flex items-center justify-between" id="inflight-banner">
+<div class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-full border-2 border-primary border-t-transparent animate-spin"></div>
+<span class="font-label-lg text-label-lg font-semibold">Benchmarking in progress: Running 10,000 synthetic operations through CPython AVL memory hooks...</span>
+</div>
+<span class="font-mono text-label-sm text-label-sm">PID: 90214 · CPU: 94.2%</span>
+</div>
+<!-- 1. Configuration & Experiment Controls Panel -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-6 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Experiment Parameter Matrix</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Calibrate catalog volume, key distribution ordering, and real-time query probes.</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<button class="h-11 px-5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold shadow-md hover:bg-surface-tint active:scale-[0.98] transition-all flex items-center gap-2" onclick="simulateFastAPIBenchmark()">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Run Benchmark (FastAPI)</span>
+</button>
+<button class="h-11 px-4 rounded-xl bg-surface-container text-on-surface font-label-lg text-label-lg font-semibold hover:bg-surface-container-high transition-all flex items-center gap-2" onclick="applyPreset('skew')">
+<span class="material-symbols-outlined text-[18px]">electric_bolt</span>
+<span>Generate Skewed Input</span>
+</button>
+<button class="h-11 px-4 rounded-xl bg-surface-container text-on-surface font-label-lg text-label-lg font-semibold hover:bg-surface-container-high transition-all flex items-center gap-2" onclick="stepTraceThroughTree()">
+<span class="material-symbols-outlined text-[18px]">not_started</span>
+<span>Step-by-step Trace</span>
+</button>
+<button class="h-11 px-3.5 rounded-xl bg-surface-container text-on-surface-variant hover:text-error hover:bg-surface-container-high transition-all" onclick="resetDataset()" title="Reset Dataset">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 pt-6">
+<!-- Size Selector Pills -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Catalog Dataset Size (N)</label>
+<div class="flex flex-wrap gap-1.5 p-1 bg-surface-container rounded-xl">
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-semibold transition-all bg-surface-container-lowest text-primary shadow-xs" onclick="setN(100, this)">100</button>
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="setN(1000, this)">1,000</button>
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="setN(5000, this)">5,000</button>
+<button class="px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="setN(10000, this)">10k</button>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-outline">Custom Walkthrough Nodes:</span>
+<input class="w-16 h-7 px-2 bg-surface-container-low rounded-lg font-mono text-label-sm text-label-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest text-center" id="sample-size-input" max="63" min="7" type="number" value="23"/>
+<span class="font-label-sm text-label-sm text-outline-variant">(Canvas render cap)</span>
+</div>
+</div>
+<!-- Insertion Order Selector -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Insertion Sequence Order</label>
+<div class="flex flex-col gap-1.5">
+<label class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all">
+<span class="flex items-center gap-2 font-label-md text-label-md text-on-surface">
+<input checked="" class="w-4 h-4 text-primary focus:ring-0" name="order" type="radio" value="random"/>
+                  Random (Uniform Distributed)
+                </span>
+<span class="font-label-sm text-label-sm text-tertiary-container font-mono">avg O(log N)</span>
+</label>
+<label class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all">
+<span class="flex items-center gap-2 font-label-md text-label-md text-on-surface">
+<input class="w-4 h-4 text-primary focus:ring-0" name="order" onchange="applyPreset('skew')" type="radio" value="ascending"/>
+                  Ascending (Worst-case BST)
+                </span>
+<span class="font-label-sm text-label-sm text-error font-mono">O(N) skew</span>
+</label>
+</div>
+</div>
+<!-- Primary Operation Selector -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Tree Core Operation</label>
+<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container rounded-xl">
+<button class="py-2 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-primary shadow-xs">Search</button>
+<button class="py-2 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface">Batch Add</button>
+<button class="py-2 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface">Delete</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-tight mt-1">
+              Search traverses keys by comparison (<code class="font-mono text-primary font-semibold">&lt;</code>, <code class="font-mono text-primary font-semibold">&gt;</code>, <code class="font-mono text-primary font-semibold">==</code>).
+            </p>
+</div>
+<!-- Target Search Key / SKU -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Probe Target SKU / Key</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline">fingerprint</span>
+<input class="w-full h-11 pl-9 pr-20 bg-surface-container-low text-on-surface font-mono text-body-sm text-body-sm rounded-xl focus:outline-none focus:bg-surface-container-lowest font-medium" id="target-key-input" placeholder="SKU or numeric key..." type="text" value="AUD-WH-904"/>
+<span class="absolute right-3 px-2 py-0.5 rounded-md bg-surface-container font-mono text-label-sm text-label-sm text-on-surface-variant">Key: 2499</span>
+</div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-sm text-label-sm text-outline">Quick:</span>
+<button class="font-mono font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container/50 text-on-secondary-fixed hover:bg-secondary-container transition-all" onclick="setProbeKey('AUD-WH-904', 2499)">2499</button>
+<button class="font-mono font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high transition-all" onclick="setProbeKey('ELEC-KB-102', 12499)">12499</button>
+<button class="font-mono font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high transition-all" onclick="setProbeKey('ELEC-WT-881', 8999)">8999</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Real-Time Performance Metric Cards (High-density 4-Card Grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+<!-- Dataset Size Metric -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Indexed Catalog Size</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+</div>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface tracking-tight" id="metric-dataset">2,840</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Unique SKUs</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline-variant mt-0.5">Sample Canvas Subtree: 23 Active Nodes</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span>Memory footprint</span>
+<span class="font-mono font-semibold text-on-surface">178.4 KB</span>
+</div>
+</div>
+<!-- BST Height Metric -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Naive BST Tree Height</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold flex items-center gap-1" id="bst-status-badge">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+              O(N) Risk
+            </span>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-bold text-error tracking-tight" id="metric-bst-height">14</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Levels Depth</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Theoretical Worst: 23 hops (linear list)</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span>Max branch skew ratio</span>
+<span class="font-mono font-semibold text-error">2.8x over optimal</span>
+</div>
+</div>
+<!-- AVL Height Metric -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">AVL Balanced Height</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">balance</span>
+              O(log N) Optimal
+            </span>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-bold text-primary tracking-tight">5</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Levels Bound</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Strict bound: 1.44 log₂(23) ≈ 5.18</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span>Balance factor invariant</span>
+<span class="font-mono font-semibold text-primary">|BF| ≤ 1 strictly</span>
+</div>
+</div>
+<!-- Comparisons Metric -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Search Comparisons (Key 2499)</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">speed</span>
+              +55.6% Faster
+            </span>
+</div>
+<div class="my-3">
+<div class="flex items-baseline gap-3">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface-variant">9</span>
+<span class="font-label-sm text-label-sm text-outline">BST</span>
+</div>
+<span class="text-outline-variant font-body-sm text-body-sm">vs</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl font-bold text-primary">4</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">AVL</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">BST: 0.18ms · AVL: 0.04ms (-77.8% latency)</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span>Cache memory hops</span>
+<span class="font-mono font-semibold text-primary">4 cache lines touched</span>
+</div>
+</div>
+</div>
+<!-- 3. Side-by-Side Interactive Tree Visualization Canvas -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden flex flex-col">
+<!-- Canvas Toolbar -->
+<div class="px-6 py-3.5 bg-surface-container-low flex flex-wrap items-center justify-between gap-4 border-b border-surface-container">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">schema</span>
+              Side-by-Side Topology Comparison
+            </span>
+<span class="h-4 w-[1px] bg-surface-container-high hidden sm:block"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Sample Universe: N=23 Nodes | Key Range [1000 - 9999]</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 bg-surface-container-lowest rounded-xl p-1 shadow-xs">
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" onclick="zoomCanvas(1.1)" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" onclick="zoomCanvas(0.9)" title="Zoom Out">
+<span class="material-symbols-outlined text-[18px]">zoom_out</span>
+</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" onclick="resetCanvasZoom()" title="Reset View">
+<span class="material-symbols-outlined text-[18px]">fit_screen</span>
+</button>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-lowest rounded-xl shadow-xs">
+<label class="flex items-center gap-2 cursor-pointer font-label-sm text-label-sm text-on-surface-variant select-none">
+<input checked="" class="rounded text-primary focus:ring-0" id="toggle-node-details" onchange="toggleNodeMetadata()" type="checkbox"/>
+                Show Node BF &amp; SKU tags
+              </label>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">Probe Active: 2499</span>
+</div>
+</div>
+</div>
+<!-- The Twin Canvases Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-surface-container bg-surface-bright transition-transform duration-200" id="canvas-container">
+<!-- LEFT CANVAS: Naive BST -->
+<div class="p-6 relative flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Unbalanced Binary Search Tree (BST)</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-mono font-medium">Height = 14</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container font-mono text-on-surface-variant">Path: 9 Hops</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+              Arbitrary insertion order causes severe rightward and leftward elongation. Notice long sub-branches behaving identically to a singly-linked list.
+            </p>
+<!-- SVG Tree Visualizer Left -->
+<div class="relative w-full h-[480px] bg-surface-container-lowest rounded-xl p-4 overflow-hidden flex items-center justify-center shadow-inner">
+<!-- Depth Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-6 px-4 pointer-events-none opacity-40">
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L0 (Root)</span><span>Depth 0</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L1</span><span>Depth 1</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L2</span><span>Depth 2</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L3</span><span>Depth 3</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L4</span><span>Depth 4</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L5+ (Deep Skew)</span><span>Degraded Path</span></div>
+</div>
+<!-- Vector Tree Elements -->
+<svg class="w-full h-full" fill="none" viewbox="0 0 540 440" xmlns="http://www.w3.org/2000/svg">
+<!-- Connectors (Normal) -->
+<path d="M 270 40 L 150 100" stroke="#CBD5E1" stroke-linecap="round" stroke-width="2"></path>
+<path d="M 270 40 L 400 95" stroke="#CBD5E1" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<path d="M 400 95 L 450 150" stroke="#CBD5E1" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<!-- BST Search Path Traces (Indigo / Amber Glow) -->
+<path d="M 270 40 L 150 100" stroke="#4F46E5" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M 150 100 L 90 160" stroke="#4F46E5" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M 90 160 L 130 220" stroke="#4F46E5" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M 130 220 L 100 270" stroke="#4F46E5" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M 100 270 L 140 320" stroke="#4F46E5" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M 140 320 L 120 370" stroke="#4F46E5" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M 120 370 L 150 410" stroke="#4F46E5" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Side Nodes for visual hierarchy -->
+<g class="transition-all hover:scale-105" transform="translate(400, 95)">
+<circle fill="#F8FAFC" r="18" stroke="#CBD5E1" stroke-width="1.5"></circle>
+<text fill="#64748B" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" text-anchor="middle" y="4">7100</text>
+<text fill="#94A3B8" font-family="Inter" font-size="9" text-anchor="middle" y="28">APP-JK-11</text>
+</g>
+<g class="transition-all hover:scale-105" transform="translate(450, 150)">
+<circle fill="#F8FAFC" r="16" stroke="#CBD5E1" stroke-width="1.5"></circle>
+<text fill="#64748B" font-family="Plus Jakarta Sans" font-size="10" font-weight="600" text-anchor="middle" y="4">8890</text>
+</g>
+<!-- Root Node (5799) -->
+<g class="cursor-pointer" transform="translate(270, 40)">
+<circle fill="#4F46E5" filter="drop-shadow(0 2px 5px rgba(79, 70, 229, 0.4))" r="22" stroke="#FFFFFF" stroke-width="3"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" text-anchor="middle" y="5">5799</text>
+<rect fill="#EEF2FF" height="15" rx="3" width="70" x="-35" y="26"></rect>
+<text fill="#4338CA" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" y="37">Nomad Backpack</text>
+</g>
+<!-- Hop 2 (3899) -->
+<g class="cursor-pointer" transform="translate(150, 100)">
+<circle fill="#4F46E5" filter="drop-shadow(0 2px 4px rgba(79, 70, 229, 0.3))" r="20" stroke="#FFFFFF" stroke-width="2.5"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" text-anchor="middle" y="4">3899</text>
+<rect fill="#EEF2FF" height="14" rx="3" width="60" x="-30" y="23"></rect>
+<text fill="#4338CA" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" y="33">Smart Ring V2</text>
+</g>
+<!-- Hop 3 (1890) -->
+<g class="cursor-pointer" transform="translate(90, 160)">
+<circle fill="#4F46E5" r="18" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" text-anchor="middle" y="4">1890</text>
+</g>
+<!-- Hop 4 (2100) -->
+<g class="cursor-pointer" transform="translate(130, 220)">
+<circle fill="#4F46E5" r="18" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" text-anchor="middle" y="4">2100</text>
+</g>
+<!-- Hop 5 (2250) -->
+<g class="cursor-pointer" transform="translate(100, 270)">
+<circle fill="#4F46E5" r="18" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" text-anchor="middle" y="4">2250</text>
+</g>
+<!-- Hop 6 (2310) -->
+<g class="cursor-pointer" transform="translate(140, 320)">
+<circle fill="#4F46E5" r="18" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" text-anchor="middle" y="4">2310</text>
+</g>
+<!-- Hop 7 (2400) -->
+<g class="cursor-pointer" transform="translate(120, 370)">
+<circle fill="#4F46E5" r="18" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" text-anchor="middle" y="4">2400</text>
+</g>
+<!-- TARGET NODE HIT! (2499) at Depth 8 / Hop 9 -->
+<g class="cursor-pointer" transform="translate(150, 410)">
+<circle fill="#BA1A1A" filter="drop-shadow(0 0 10px rgba(186, 26, 26, 0.6))" r="22" stroke="#FFFFFF" stroke-width="3"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" text-anchor="middle" y="5">2499</text>
+<rect fill="#BA1A1A" height="17" rx="4" width="84" x="-42" y="-35"></rect>
+<text fill="#FFFFFF" font-family="Inter" font-size="8" font-weight="700" text-anchor="middle" y="-23">TARGET REACHED</text>
+</g>
+<!-- Skew Depth Marker Badge -->
+<g transform="translate(320, 340)">
+<rect fill="#FFF5F5" height="60" rx="8" stroke="#FECACA" stroke-width="1" width="180"></rect>
+<text fill="#991B1B" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" x="12" y="22">Severe Left-Right Skew</text>
+<text fill="#B91C1C" font-family="Inter" font-size="9" x="12" y="38">Depth: 8 levels down (9 hops)</text>
+<text fill="#7F1D1D" font-family="Inter" font-size="9" x="12" y="50">Search latency: 0.18ms</text>
+</g>
+</svg>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-1 rounded bg-primary"></span>
+<span>Active traversal path</span>
+</span>
+<span class="font-mono text-error font-medium">Degenerate Depth: L8</span>
+</div>
+</div>
+<!-- RIGHT CANVAS: Balanced AVL Tree -->
+<div class="p-6 relative flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-3 h-3 rounded-full bg-emerald-600"></div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Self-Balancing AVL Tree (Strict |BF| ≤ 1)</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-mono font-medium">Height = 5</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-mono font-bold">Path: 4 Hops!</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+              Rotations automatically executed during insertion. Height is strictly logarithmic with branching factor balanced across all subtrees.
+            </p>
+<!-- SVG Tree Visualizer Right -->
+<div class="relative w-full h-[480px] bg-surface-container-lowest rounded-xl p-4 overflow-hidden flex items-center justify-center shadow-inner">
+<!-- Depth Guides -->
+<div class="absolute inset-0 flex flex-col justify-between py-6 px-4 pointer-events-none opacity-40">
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L0 (Root)</span><span>Depth 0</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L1</span><span>Depth 1</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L2</span><span>Depth 2</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L3</span><span>Depth 3</span></div>
+<div class="flex items-center justify-between text-outline text-[10px] font-mono border-b border-surface-container"><span>L4 (Max Depth Bound)</span><span>Optimal Leaf Depth</span></div>
+</div>
+<!-- Vector AVL Tree Elements -->
+<svg class="w-full h-full" fill="none" viewbox="0 0 540 440" xmlns="http://www.w3.org/2000/svg">
+<!-- Connectors Normal -->
+<path d="M 270 50 L 140 130" stroke="#10B981" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 270 50 L 400 130" stroke="#CBD5E1" stroke-width="1.8"></path>
+<path d="M 140 130 L 75 220" stroke="#10B981" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 140 130 L 205 220" stroke="#CBD5E1" stroke-width="1.8"></path>
+<path d="M 400 130 L 335 220" stroke="#CBD5E1" stroke-width="1.8"></path>
+<path d="M 400 130 L 465 220" stroke="#CBD5E1" stroke-width="1.8"></path>
+<path d="M 75 220 L 40 310" stroke="#CBD5E1" stroke-width="1.8"></path>
+<path d="M 75 220 L 110 310" stroke="#10B981" stroke-linecap="round" stroke-width="3.5"></path>
+<path d="M 205 220 L 175 310" stroke="#CBD5E1" stroke-width="1.8"></path>
+<path d="M 205 220 L 235 310" stroke="#CBD5E1" stroke-width="1.8"></path>
+<!-- Subtree Level 1 Right: 7100 -->
+<g transform="translate(400, 130)">
+<circle fill="#F8FAFC" r="20" stroke="#CBD5E1" stroke-width="2"></circle>
+<text fill="#1E293B" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" text-anchor="middle" y="4">7100</text>
+<rect fill="#E2E8F0" height="13" rx="4" width="28" x="-14" y="-28"></rect>
+<text fill="#475569" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" y="-19">BF: 0</text>
+</g>
+<!-- Subtree Level 2 Right Nodes -->
+<g transform="translate(335, 220)">
+<circle fill="#F8FAFC" r="17" stroke="#CBD5E1" stroke-width="1.5"></circle>
+<text fill="#475569" font-family="Plus Jakarta Sans" font-size="10" font-weight="600" text-anchor="middle" y="4">6200</text>
+<text fill="#94A3B8" font-family="Inter" font-size="8" text-anchor="middle" y="-18">BF: 0</text>
+</g>
+<g transform="translate(465, 220)">
+<circle fill="#F8FAFC" r="17" stroke="#CBD5E1" stroke-width="1.5"></circle>
+<text fill="#475569" font-family="Plus Jakarta Sans" font-size="10" font-weight="600" text-anchor="middle" y="4">8890</text>
+<text fill="#94A3B8" font-family="Inter" font-size="8" text-anchor="middle" y="-18">BF: +1</text>
+</g>
+<!-- Level 2 Node: 4299 (RL Rotation applied site) -->
+<g transform="translate(205, 220)">
+<circle fill="#F8FAFC" r="19" stroke="#818CF8" stroke-width="2"></circle>
+<text fill="#312E81" font-family="Plus Jakarta Sans" font-size="11" font-weight="600" text-anchor="middle" y="4">4299</text>
+<rect fill="#EEF2FF" height="13" rx="4" width="30" x="-15" y="-28"></rect>
+<text fill="#4F46E5" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" y="-19">BF: 0</text>
+<!-- Rotation applied pill -->
+<rect fill="#EEF2FF" height="16" rx="4" stroke="#C7D2FE" stroke-width="1" width="110" x="-55" y="24"></rect>
+<text fill="#4338CA" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" y="35">RL Rotated (Insert)</text>
+</g>
+<!-- Leaves -->
+<g transform="translate(40, 310)"><circle fill="#F8FAFC" r="15" stroke="#CBD5E1" stroke-width="1.5"></circle><text fill="#64748B" font-size="9" text-anchor="middle" y="4">1100</text></g>
+<g transform="translate(175, 310)"><circle fill="#F8FAFC" r="15" stroke="#CBD5E1" stroke-width="1.5"></circle><text fill="#64748B" font-size="9" text-anchor="middle" y="4">3900</text></g>
+<g transform="translate(235, 310)"><circle fill="#F8FAFC" r="15" stroke="#CBD5E1" stroke-width="1.5"></circle><text fill="#64748B" font-size="9" text-anchor="middle" y="4">4500</text></g>
+<!-- Hop 1: AVL Root Node (5799) -->
+<g class="cursor-pointer" transform="translate(270, 50)">
+<circle fill="#10B981" filter="drop-shadow(0 2px 8px rgba(16, 185, 129, 0.4))" r="23" stroke="#FFFFFF" stroke-width="3"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" text-anchor="middle" y="5">5799</text>
+<rect fill="#D1FAE5" height="14" rx="4" width="32" x="-16" y="-32"></rect>
+<text fill="#065F46" font-family="Inter" font-size="8" font-weight="700" text-anchor="middle" y="-22">BF: +1</text>
+<rect fill="#ECFDF5" height="15" rx="3" width="70" x="-35" y="28"></rect>
+<text fill="#047857" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" y="39">Nomad Backpack</text>
+</g>
+<!-- Hop 2: Node (3899) -->
+<g class="cursor-pointer" transform="translate(140, 130)">
+<circle fill="#10B981" filter="drop-shadow(0 2px 6px rgba(16, 185, 129, 0.3))" r="21" stroke="#FFFFFF" stroke-width="2.5"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" text-anchor="middle" y="5">3899</text>
+<rect fill="#D1FAE5" height="14" rx="4" width="30" x="-15" y="-30"></rect>
+<text fill="#065F46" font-family="Inter" font-size="8" font-weight="700" text-anchor="middle" y="-20">BF: -1</text>
+<rect fill="#ECFDF5" height="14" rx="3" width="60" x="-30" y="26"></rect>
+<text fill="#047857" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" y="36">Smart Ring V2</text>
+</g>
+<!-- Hop 3: Node (1499) -->
+<g class="cursor-pointer" transform="translate(75, 220)">
+<circle fill="#10B981" filter="drop-shadow(0 2px 6px rgba(16, 185, 129, 0.3))" r="20" stroke="#FFFFFF" stroke-width="2.5"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" text-anchor="middle" y="5">1499</text>
+<rect fill="#D1FAE5" height="13" rx="4" width="30" x="-15" y="-28"></rect>
+<text fill="#065F46" font-family="Inter" font-size="8" font-weight="700" text-anchor="middle" y="-19">BF: +1</text>
+<rect fill="#ECFDF5" height="13" rx="3" width="52" x="-26" y="24"></rect>
+<text fill="#047857" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" y="33">Power Hub</text>
+</g>
+<!-- Hop 4: TARGET FOUND! Key (2499) -->
+<g class="cursor-pointer" transform="translate(110, 310)">
+<circle fill="#059669" filter="drop-shadow(0 0 12px rgba(5, 150, 105, 0.6))" r="23" stroke="#FFFFFF" stroke-width="3"></circle>
+<text fill="#FFFFFF" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" text-anchor="middle" y="5">2499</text>
+<rect fill="#A7F3D0" height="14" rx="4" width="32" x="-16" y="-32"></rect>
+<text fill="#064E3B" font-family="Inter" font-size="8" font-weight="700" text-anchor="middle" y="-22">BF: 0</text>
+<rect fill="#065F46" height="16" rx="3" width="88" x="-44" y="27"></rect>
+<text fill="#FFFFFF" font-family="Inter" font-size="8" font-weight="700" text-anchor="middle" y="38">AUD-WH-904 FOUND</text>
+</g>
+<!-- Success Badge Overlay -->
+<g transform="translate(300, 340)">
+<rect fill="#ECFDF5" height="60" rx="8" stroke="#A7F3D0" stroke-width="1" width="200"></rect>
+<text fill="#065F46" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" x="12" y="22">AVL Optimal Convergence</text>
+<text fill="#047857" font-family="Inter" font-size="9" x="12" y="38">Found in only 4 comparisons!</text>
+<text fill="#064E3B" font-family="Inter" font-size="9" x="12" y="50">Latency: 0.04ms (FastAPI C-level)</text>
+</g>
+</svg>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-1 rounded bg-emerald-500"></span>
+<span>Self-balanced search path (log₂ N)</span>
+</span>
+<span class="font-mono text-emerald-700 font-semibold">Max Subtree Depth: L4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Step-by-Step Search Operation Trace & Execution Log -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">timeline</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Step-by-Step Search Execution Trace</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Comparative trace for Target Probe Key: <span class="font-mono font-semibold text-primary">2499 (AUD-WH-904)</span></p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-label-sm font-semibold flex items-center gap-1.5 border border-emerald-200">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              AVL early termination: 4 hops vs BST 9 hops
+            </span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-6">
+<!-- Step 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-semibold">HOP 1 · ROOT</span>
+<span class="font-mono text-label-sm text-label-sm text-outline">0.01ms</span>
+</div>
+<div class="my-1">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Node Key: 5799</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Comparison: <code class="font-mono text-primary font-semibold">2499 &lt; 5799</code>
+</p>
+<div class="mt-2 text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">turn_left</span>
+                Branch LEFT child
+              </div>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container flex items-center justify-between text-outline text-[11px] font-mono">
+<span>Both Trees Active</span>
+<span>1 comparison</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-semibold">HOP 2 · L1</span>
+<span class="font-mono text-label-sm text-label-sm text-outline">0.02ms</span>
+</div>
+<div class="my-1">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Node Key: 3899</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Comparison: <code class="font-mono text-primary font-semibold">2499 &lt; 3899</code>
+</p>
+<div class="mt-2 text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">turn_left</span>
+                Branch LEFT child
+              </div>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container flex items-center justify-between text-outline text-[11px] font-mono">
+<span>Both Trees Active</span>
+<span>2 comparisons</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-semibold">HOP 3 · L2 (DIVERGE)</span>
+<span class="font-mono text-label-sm text-label-sm text-outline">0.03ms</span>
+</div>
+<div class="my-1">
+<p class="font-label-md text-label-md font-semibold text-on-surface">AVL Node Key: 1499</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Comparison: <code class="font-mono text-emerald-700 font-semibold">2499 &gt; 1499</code>
+</p>
+<div class="mt-2 text-emerald-700 font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">turn_right</span>
+                Branch RIGHT child (AVL)
+              </div>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container flex items-center justify-between text-outline text-[11px] font-mono">
+<span class="text-error">BST skips to 1890</span>
+<span>3 comparisons</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="p-4 rounded-xl bg-emerald-50 text-emerald-950 flex flex-col justify-between border border-emerald-200">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-emerald-200 text-emerald-900 font-bold">HOP 4 · TARGET HIT</span>
+<span class="font-mono text-label-sm text-label-sm text-emerald-700 font-bold">0.04ms</span>
+</div>
+<div class="my-1">
+<p class="font-label-md text-label-md font-bold text-emerald-950">Found: AUD-WH-904</p>
+<p class="font-body-sm text-body-sm text-emerald-800 mt-1">
+                Comparison: <code class="font-mono font-bold text-emerald-900">2499 == 2499</code>
+</p>
+<div class="mt-2 text-emerald-800 font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                AVL Terminated in 4 hops!
+              </div>
+</div>
+<div class="mt-3 pt-2 border-t border-emerald-200 flex items-center justify-between text-[11px] font-mono text-emerald-800">
+<span class="text-error font-semibold">BST continues 5 more hops</span>
+<span>Success</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. Benchmark Comparison: Visual Charts & Empirical vs Theoretical Complexity Table -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Performance Microseconds Comparison Bar Chart -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Latency Telemetry (μs)</h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container font-mono text-on-surface-variant">cProfile / FastAPI</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Execution duration across core dictionary operations (lower is better).</p>
+<div class="space-y-4">
+<!-- Search Query Metric -->
+<div>
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1.5">
+<span class="font-semibold text-on-surface">Search Probe (Key 2499)</span>
+<div class="flex items-center gap-3 font-mono">
+<span class="text-error">BST: 180μs</span>
+<span class="text-primary font-bold">AVL: 40μs</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-error" style="width: 75%"></div>
+<div class="h-full bg-primary" style="width: 25%"></div>
+</div>
+</div>
+<!-- Batch Insert Metric -->
+<div>
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1.5">
+<span class="font-semibold text-on-surface">Batch Insert (1,000 SKUs)</span>
+<div class="flex items-center gap-3 font-mono">
+<span class="text-error">BST: 1,420μs</span>
+<span class="text-primary font-bold">AVL: 680μs</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-error" style="width: 68%"></div>
+<div class="h-full bg-primary" style="width: 32%"></div>
+</div>
+</div>
+<!-- Delete Node Metric -->
+<div>
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1.5">
+<span class="font-semibold text-on-surface">Delete Node (Rebalance Cost)</span>
+<div class="flex items-center gap-3 font-mono">
+<span class="text-on-surface-variant">BST: 95μs</span>
+<span class="text-primary font-bold">AVL: 110μs*</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-outline-variant" style="width: 46%"></div>
+<div class="h-full bg-primary" style="width: 54%"></div>
+</div>
+<p class="font-label-sm text-label-sm text-outline-variant mt-1">*AVL rebalancing rotation overhead on deletion.</p>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Throughput Advantage:</span>
+<span class="font-mono font-semibold text-emerald-700">+4.5x QPS for AVL Search</span>
+</div>
+</div>
+<!-- Empirical vs Theoretical Table -->
+<div class="xl:col-span-2 bg-surface-container-lowest rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Empirical Backend vs Asymptotic Complexity</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Benchmark validation matrix contrasting measured Python telemetry with formal Big-O proofs.</p>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-fixed font-semibold">Strict Bounds</span>
+</div>
+<div class="overflow-x-auto mt-4">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="border-b border-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase">
+<th class="py-3 px-3">Data Structure</th>
+<th class="py-3 px-3">Height</th>
+<th class="py-3 px-3">Operation</th>
+<th class="py-3 px-3">Measured Latency</th>
+<th class="py-3 px-3">Hops</th>
+<th class="py-3 px-3">Avg Big-O</th>
+<th class="py-3 px-3">Worst Big-O</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-mono text-label-sm text-label-sm">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-3 font-semibold text-on-surface">BST (Random)</td>
+<td class="py-3 px-3 text-on-surface-variant">14</td>
+<td class="py-3 px-3 text-on-surface">Search Probe</td>
+<td class="py-3 px-3 text-on-surface">180 μs</td>
+<td class="py-3 px-3 text-on-surface">9 comps</td>
+<td class="py-3 px-3 text-emerald-700 font-semibold">O(log N)</td>
+<td class="py-3 px-3 text-error font-semibold">O(N)</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors bg-error-container/10">
+<td class="py-3 px-3 font-semibold text-error">BST (Sorted Degenerate)</td>
+<td class="py-3 px-3 text-error font-bold">23 (N)</td>
+<td class="py-3 px-3 text-on-surface">Search Probe</td>
+<td class="py-3 px-3 text-error font-bold">540 μs</td>
+<td class="py-3 px-3 text-error font-bold">23 comps</td>
+<td class="py-3 px-3 text-error font-semibold">O(N)</td>
+<td class="py-3 px-3 text-error font-bold">O(N)</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors bg-secondary-container/20">
+<td class="py-3 px-3 font-semibold text-primary">AVL (Random)</td>
+<td class="py-3 px-3 text-primary font-bold">5</td>
+<td class="py-3 px-3 text-on-surface">Search Probe</td>
+<td class="py-3 px-3 text-primary font-bold">40 μs</td>
+<td class="py-3 px-3 text-primary font-bold">4 comps</td>
+<td class="py-3 px-3 text-primary font-semibold">O(log N)</td>
+<td class="py-3 px-3 text-primary font-semibold">O(log N)</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors bg-secondary-container/30">
+<td class="py-3 px-3 font-semibold text-primary">AVL (Sorted Sequential)</td>
+<td class="py-3 px-3 text-primary font-bold">5</td>
+<td class="py-3 px-3 text-on-surface">Search Probe</td>
+<td class="py-3 px-3 text-primary font-bold">42 μs</td>
+<td class="py-3 px-3 text-primary font-bold">4 comps</td>
+<td class="py-3 px-3 text-primary font-semibold">O(log N)</td>
+<td class="py-3 px-3 text-primary font-semibold">O(log N)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex flex-wrap items-center justify-between gap-3 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>FastAPI Benchmark Suite v2.4 (cProfile compiled via Cython)</span>
+</span>
+<span class="text-outline">Theoretical Bound: Height ≤ 1.4404 · log₂(N + 2) - 0.328</span>
+</div>
+</div>
+</div>
+<!-- 6. Academic & Algorithmic Deep Dive (Expandable Tabs) -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Algorithmic Deep Dive &amp; Mathematical Invariants</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Core proofs ensuring balanced indexing performance in ShopSphere product routing.</p>
+</div>
+</div>
+<!-- Academic Tab Controls -->
+<div class="flex items-center gap-1 bg-surface-container rounded-xl p-1">
+<button class="academic-tab px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-primary shadow-xs transition-all" onclick="switchTab('tab-invariant', this)">BST Invariant</button>
+<button class="academic-tab px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="switchTab('tab-factor', this)">AVL Balance Factor</button>
+<button class="academic-tab px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="switchTab('tab-rotations', this)">Rotations Visualizer</button>
+<button class="academic-tab px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" onclick="switchTab('tab-degenerate', this)">Degenerate Skew Analysis</button>
+</div>
+</div>
+<!-- Tab Content 1: BST Invariant -->
+<div class="tab-pane mt-6 grid grid-cols-1 md:grid-cols-3 gap-6" id="tab-invariant">
+<div class="md:col-span-2 space-y-3">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Binary Search Tree Ordering Property</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              For any given tree node <code class="font-mono text-primary font-semibold">u</code>, every node key in the left subtree of <code class="font-mono text-primary font-semibold">u</code> is strictly less than <code class="font-mono text-primary font-semibold">u.key</code>, and every node key in the right subtree is strictly greater than <code class="font-mono text-primary font-semibold">u.key</code>.
+            </p>
+<div class="p-4 rounded-xl bg-surface-container-low font-mono text-body-sm text-body-sm text-on-surface space-y-1">
+<p class="text-tertiary-container">// Formal Invariant:</p>
+<p>∀ v ∈ u.left ⇒ v.key &lt; u.key</p>
+<p>∀ w ∈ u.right ⇒ w.key &gt; u.key</p>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              While search in an average BST takes logarithmic time, BSTs make no height guarantee. Inserting sorted product SKUs results in a degenerate list where every search degrades to <code class="font-mono text-error font-semibold">Θ(N)</code>.
+            </p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-primary mb-2">sort</span>
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface">In-Order Traversal Invariant</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">An in-order traversal of a valid BST always yields keys sorted in monotonically ascending order.</p>
+</div>
+</div>
+<!-- Tab Content 2: AVL Balance Factor (Hidden by default) -->
+<div class="tab-pane hidden mt-6 grid grid-cols-1 md:grid-cols-3 gap-6" id="tab-factor">
+<div class="md:col-span-2 space-y-3">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">The Balance Factor (BF) Theorem</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              An AVL tree is a self-balancing binary search tree where the heights of the two child subtrees of any node differ by at most one:
+            </p>
+<div class="p-4 rounded-xl bg-surface-container-low font-mono text-body-sm text-body-sm text-on-surface space-y-1">
+<p class="text-emerald-700 font-semibold">BalanceFactor(u) = Height(u.left) - Height(u.right)</p>
+<p class="text-primary font-bold">Strict Invariant: BalanceFactor(u) ∈ {-1, 0, +1}</p>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              If at any point during an insertion or deletion <code class="font-mono text-error font-semibold">|BF(u)| ≥ 2</code>, the tree is rebalanced by executing at most two constant-time tree rotations (<code class="font-mono text-primary font-semibold">O(1)</code>).
+            </p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-emerald-600 mb-2">balance</span>
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface">Adelson-Velsky &amp; Landis</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">First dynamically self-balancing tree discovered (1962), guaranteeing worst-case search within 1.44 log₂(N).</p>
+</div>
+</div>
+<!-- Tab Content 3: Rotations Visualizer (Hidden by default) -->
+<div class="tab-pane hidden mt-6 grid grid-cols-1 md:grid-cols-4 gap-4" id="tab-rotations">
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-label-md text-label-md font-semibold text-primary mb-1">Left-Left (LL)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-3">Single Right Rotation</span>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-[28px]">rotate_right</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Applied when insertion is in left subtree of left child (BF = +2, child BF = +1).</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-label-md text-label-md font-semibold text-primary mb-1">Right-Right (RR)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-3">Single Left Rotation</span>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-[28px]">rotate_left</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Applied when insertion is in right subtree of right child (BF = -2, child BF = -1).</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-label-md text-label-md font-semibold text-primary mb-1">Left-Right (LR)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-3">Double Rotation</span>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-[28px]">sync_alt</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Left rotate left child, then Right rotate parent node (BF = +2, child BF = -1).</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col items-center text-center border border-primary/20">
+<span class="font-label-md text-label-md font-semibold text-primary mb-1">Right-Left (RL)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-3">Double Rotation</span>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-[28px]">sync</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Applied on Key 4299 in the live visualization above to restore balance factor to 0.</p>
+</div>
+</div>
+<!-- Tab Content 4: Degenerate Skew Analysis (Hidden by default) -->
+<div class="tab-pane hidden mt-6 grid grid-cols-1 md:grid-cols-3 gap-6" id="tab-degenerate">
+<div class="md:col-span-2 space-y-3">
+<h4 class="font-headline-sm text-headline-sm text-error font-semibold">Degenerate Skew &amp; Production Risks</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              In real-world e-commerce catalogs, products are frequently added with sequentially increasing database auto-increment IDs (e.g. 1001, 1002, 1003...). 
+            </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              If an index uses a standard BST, sequential inserts degrade the tree into a right-leaning singly-linked list. Search lookups become <code class="font-mono text-error font-semibold">O(N)</code> scans, triggering CPU spikes and FastAPI request timeouts.
+            </p>
+<div class="p-4 rounded-xl bg-error-container/20 text-on-error-container text-body-sm text-body-sm flex items-center gap-3">
+<span class="material-symbols-outlined text-[24px] text-error">dangerous</span>
+<span>ShopSphere SLA requires &lt;1.5ms catalog retrieval. Unbalanced trees breach this SLA at N ≥ 4,000 items.</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-error mb-2">trending_down</span>
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface">O(N) Degradation</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">AVL transforms this degenerate worst-case back into O(log N) through automated logarithmic height clamping.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let currentZoom = 1;
+
+  function switchLabMode(mode) {
+    const modes = ['benchmark', 'trace', 'inflight', 'skew', 'error'];
+    modes.forEach(m => {
+      const btn = document.getElementById('mode-' + m);
+      if (btn) {
+        if (m === mode) {
+          btn.className = "px-3.5 py-1.5 rounded-xl font-label-md text-label-md font-semibold bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center gap-1.5";
+        } else {
+          btn.className = "px-3.5 py-1.5 rounded-xl font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5";
+        }
+      }
+    });
+
+    const errorBanner = document.getElementById('error-banner');
+    const inflightBanner = document.getElementById('inflight-banner');
+
+    if (mode === 'error') {
+      errorBanner.classList.remove('hidden');
+      inflightBanner.classList.add('hidden');
+    } else if (mode === 'inflight') {
+      inflightBanner.classList.remove('hidden');
+      errorBanner.classList.add('hidden');
+    } else if (mode === 'skew') {
+      applyPreset('skew');
+      errorBanner.classList.add('hidden');
+      inflightBanner.classList.add('hidden');
+    } else {
+      errorBanner.classList.add('hidden');
+      inflightBanner.classList.add('hidden');
+    }
+  }
+
+  function setN(size, el) {
+    const buttons = el.parentNode.querySelectorAll('button');
+    buttons.forEach(b => {
+      b.className = "px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all";
+    });
+    el.className = "px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-semibold transition-all bg-surface-container-lowest text-primary shadow-xs";
+    document.getElementById('metric-dataset').textContent = size.toLocaleString();
+  }
+
+  function setProbeKey(sku, key) {
+    const input = document.getElementById('target-key-input');
+    input.value = sku;
+  }
+
+  function simulateFastAPIBenchmark() {
+    switchLabMode('inflight');
+    setTimeout(() => {
+      switchLabMode('benchmark');
+    }, 1200);
+  }
+
+  function applyPreset(preset) {
+    if (preset === 'skew') {
+      const bstHeight = document.getElementById('metric-bst-height');
+      if (bstHeight) bstHeight.textContent = '23';
+      const bstBadge = document.getElementById('bst-status-badge');
+      if (bstBadge) {
+        bstBadge.textContent = 'O(N) Skewed List';
+      }
+    }
+  }
+
+  function resetDataset() {
+    const bstHeight = document.getElementById('metric-bst-height');
+    if (bstHeight) bstHeight.textContent = '14';
+    const sampleInput = document.getElementById('sample-size-input');
+    if (sampleInput) sampleInput.value = '23';
+  }
+
+  function stepTraceThroughTree() {
+    switchLabMode('trace');
+  }
+
+  function zoomCanvas(factor) {
+    currentZoom = Math.min(Math.max(currentZoom * factor, 0.7), 1.5);
+    const canvas = document.getElementById('canvas-container');
+    if (canvas) {
+      canvas.style.transform = `scale(${currentZoom})`;
+      canvas.style.transformOrigin = 'center top';
+    }
+  }
+
+  function resetCanvasZoom() {
+    currentZoom = 1;
+    const canvas = document.getElementById('canvas-container');
+    if (canvas) {
+      canvas.style.transform = 'scale(1)';
+    }
+  }
+
+  function toggleNodeMetadata() {
+    const chk = document.getElementById('toggle-node-details');
+    // Can toggle visual SVG layers if needed
+  }
+
+  function switchTab(tabId, el) {
+    const tabs = document.querySelectorAll('.academic-tab');
+    tabs.forEach(t => {
+      t.className = "academic-tab px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all";
+    });
+    el.className = "academic-tab px-3 py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container-lowest text-primary shadow-xs transition-all";
+
+    const panes = document.querySelectorAll('.tab-pane');
+    panes.forEach(p => p.classList.add('hidden'));
+
+    const activePane = document.getElementById(tabId);
+    if (activePane) activePane.classList.remove('hidden');
+  }
+</script></main></div></body></html>

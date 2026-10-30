@@ -1,0 +1,109 @@
+"""ShopSphere Backend Application Entrypoint.
+
+FastAPI REST API server integrating:
+- SQLite persistence via SQLAlchemy 2.0.
+- Multi-key in-memory search trees (ID BST, ID AVL, Name AVL, PriceIndex).
+- ADSA performance benchmarking and interactive search path tracing.
+"""
+
+from __future__ import annotations
+import logging
+from contextlib import asynccontextmanager
+from typing import AsyncGenerator
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import select
+
+from backend.api.routes import router as api_router
+from backend.database.connection import create_tables, get_db_session, get_engine
+from backend.database.models import Product
+from backend.database.seed_data import SEED_PRODUCTS
+from backend.services.product_service import ProductService
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+logger = logging.getLogger("shopsphere.main")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    """Initialize database tables, seed catalogue data, and build in-memory indexes."""
+    logger.info("Starting ShopSphere backend...")
+
+    if not hasattr(app.state, "product_service") or app.state.product_service is None:
+        engine = get_engine()
+        create_tables(engine)
+
+        # Initialize ProductService singleton
+        service = ProductService(engine=engine, auto_rebuild=False)
+
+        # Check if catalogue is empty; if so, populate initial seed data
+        with get_db_session(engine) as session:
+            count = len(list(session.scalars(select(Product.id)).all()))
+            if count == 0:
+                logger.info("Catalogue database is empty. Auto-seeding %d products...", len(SEED_PRODUCTS))
+                for seed in SEED_PRODUCTS:
+                    try:
+                        service.create_product(seed)
+                    except Exception as e:
+                        logger.warning("Failed to seed product %s: %s", seed.get("sku"), e)
+                logger.info("Seed catalogue populated successfully.")
+            else:
+                # Rebuild indexes from existing records
+                service.rebuild_indexes()
+                logger.info("Rebuilt in-memory indexes from %d existing products.", service.id_avl.size())
+
+        # Attach service to application state for route handlers and tests
+        app.state.product_service = service
+
+    logger.info("ShopSphere backend ready. Multi-key indexes active.")
+
+    yield
+
+
+    logger.info("Shutting down ShopSphere backend.")
+
+
+app = FastAPI(
+    title="ShopSphere — Smart Product Discovery API",
+    description="High-performance e-commerce product search backed by custom BST and AVL trees.",
+    version="1.0.0",
+    lifespan=lifespan,
+)
+
+# CORS configuration for local Vite development
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "*",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Mount all API routes under /api
+app.include_router(api_router, prefix="/api")
+
+
+@app.get("/", tags=["Root"])
+def root_info() -> dict[str, str]:
+    """Root metadata endpoint."""
+    return {
+        "service": "ShopSphere API",
+        "version": "1.0.0",
+        "documentation": "/docs",
+        "health": "/api/health",
+        "products": "/api/products",
+    }
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, reload=True)

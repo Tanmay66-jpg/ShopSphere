@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  /* === PALETTE: Quiet Luxury === */
+  --color-primary: #2D5A3D;           /* Deep forest green accent */
+  --color-primary-hover: #234830;     /* Darker green on hover */
+  --color-primary-light: #EAF1EC;     /* Light green tint */
+  --color-accent: #2D5A3D;
+  
+  --color-surface: #F5F1EA;           /* Warm ivory background */
+  --color-surface-white: #FDFCF9;     /* Near-white for cards */
+  --color-surface-dim: #EAE6DF;       /* Dimmer ivory */
+  
+  --color-ink: #1B1B1B;              /* Near-black text */
+  --color-ink-light: #5C5A56;        /* Secondary/muted text */
+  --color-ink-muted: #8A8278;        /* Tertiary text, placeholder */
+  
+  --color-border: #D9D4CC;           /* Hairline border color */
+  --color-border-light: #EAE6DF;     /* Lighter border */
+  
+  --color-error: #8B2020;
+  --color-success: #2D5A3D;
+
+  /* Keep legacy names for backward compat (maps to new colors) */
+  --color-primary-container: #EAF1EC;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1B4829;
+  --color-secondary-container: #EAF1EC;
+  --color-on-surface: #1B1B1B;
+  --color-on-surface-variant: #5C5A56;
+  --color-surface-container-lowest: #FDFCF9;
+  --color-surface-container-low: #F5F1EA;
+  --color-surface-container: #EAE6DF;
+  --color-surface-container-high: #D9D4CC;
+  --color-surface-container-highest: #C9C4BB;
+  --color-surface-variant: #EAE6DF;
+  --color-outline: #8A8278;
+  --color-outline-variant: #D9D4CC;
+  --color-surface-tint: #2D5A3D;
+  --color-secondary: #5C5A56;
+  --color-tertiary: #3A4960;
+  --color-tertiary-container: #516177;
+  --color-on-tertiary-container: #D9E4F7;
+  --color-error-container: #FDDAD6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #6B0000;
+  --color-inverse-surface: #1B1B1B;
+  --color-inverse-on-surface: #F5F1EA;
+
+  /* === TYPOGRAPHY === */
+  --font-sans: 'Instrument Sans', 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Fraunces', 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-headline: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+
+  /* Tabular numerals for prices */
+  .tabular-nums,
+  [class*="price"],
+  .price {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #EAE6DF 25%, #F5F1EA 50%, #EAE6DF 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Image fade-in on load */
+.img-fade {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.img-fade.loaded {
+  opacity: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D9D4CC; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #8A8278; }
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
