@@ -202,6 +202,12 @@ export function Navbar() {
           >
             Accessories
           </Link>
+          <Link
+            to="/adsa-lab"
+            className={navLinkClass(location.pathname === '/adsa-lab')}
+          >
+            ADSA Lab
+          </Link>
         </nav>
 
         {/* Right: Actions */}

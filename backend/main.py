@@ -15,6 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import select
 
 from backend.api.routes import router as api_router
+from backend.routers.adsa import router as adsa_live_router
 from backend.database.connection import create_tables, get_db_session, get_engine
 from backend.database.models import Product
 from backend.database.seed_data import SEED_PRODUCTS
@@ -112,6 +113,7 @@ app.add_middleware(
 
 # Mount all API routes under /api
 app.include_router(api_router, prefix="/api")
+app.include_router(adsa_live_router, prefix="/api/adsa")
 
 
 @app.get("/", tags=["Root"])

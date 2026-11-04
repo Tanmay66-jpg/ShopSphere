@@ -3,7 +3,17 @@ import { uiStore } from '../services/uiStore';
 import { api } from '../services/api';
 import type { BenchmarkResponse, OperationTraceResponse } from '../types/adsa';
 
+import { SyncStatusSection } from './adsa-lab/SyncStatusSection';
+import { LiveTreeViewer } from './adsa-lab/LiveTreeViewer';
+import { SearchLabSection } from './adsa-lab/SearchLabSection';
+import { CompareMethodsSection } from './adsa-lab/CompareMethodsSection';
+import { SandboxDemoSection } from './adsa-lab/SandboxDemoSection';
+import { ExplainPanelSection } from './adsa-lab/ExplainPanelSection';
+
 export function AdsaLabPage() {
+  // Main Tab: Backend Working (Live 50 Database Products) vs. Synthetic Benchmark Suite
+  const [mainTab, setMainTab] = useState<'backend-working' | 'synthetic-benchmark'>('backend-working');
+
   // Mode switcher
   const [labMode, setLabMode] = useState<'benchmark' | 'trace' | 'inflight' | 'skew' | 'error'>('benchmark');
 
@@ -141,48 +151,116 @@ export function AdsaLabPage() {
     : 0;
 
   return (
-    <div className="w-full min-h-screen bg-[#f9f9fa] pt-24 pb-20 relative overflow-hidden">
-      {/* Ambient background glows */}
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute top-40 right-12 w-80 h-80 bg-secondary-container/20 rounded-full blur-2xl pointer-events-none"></div>
-
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12 space-y-6 w-full">
-        {/* 1. Header & Prototype Modes Bar */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2 text-[12px] text-[#64748b]">
-              <span className="uppercase tracking-wider font-semibold">Engine Diagnostics</span>
-              <span className="material-symbols-outlined text-[14px]">chevron_right</span>
-              <span className="font-semibold text-[#1a1c1d]">ADSA Mini Project Lab</span>
-              <span className="material-symbols-outlined text-[14px]">chevron_right</span>
-              <span className="font-bold text-primary">BST vs AVL Comparative Index Benchmark</span>
-            </div>
-
-            <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="font-headline text-[28px] md:text-[34px] font-bold text-[#1a1c1d] tracking-tight">
-                ADSA Performance Lab
-              </h1>
-              <span className="px-3 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[11px] font-bold flex items-center gap-1.5 shadow-2xs">
-                <span className="material-symbols-outlined text-[14px]">terminal</span>
-                Python 3.14 Custom Algorithms
-              </span>
-              <span className="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-[11px] font-bold flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                time.perf_counter() Engine Active
-              </span>
-            </div>
-
-            <p className="text-[14px] text-[#64748b] max-w-3xl leading-relaxed">
-              Explore the empirical runtime, comparison counts, and tree height differences between an Unbalanced Binary Search Tree (BST) and a Self-Balancing AVL Tree measured across identical deterministic datasets.
-            </p>
+    <div className="w-full min-h-screen bg-[#F5F1EA] pt-20 pb-20 relative">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12 w-full">
+        {/* Page Title & Breadcrumbs */}
+        <div className="mb-6">
+          <div className="flex items-center gap-2 text-[12px] text-[#8A8278] mb-2 font-mono">
+            <span>ShopSphere</span>
+            <span>/</span>
+            <span>ADSA Mini Project</span>
+            <span>/</span>
+            <span className="text-[#1B1B1B]">Performance &amp; Live Working Lab</span>
           </div>
 
-          {/* Prototype Mode Switcher */}
-          <div className="flex items-center gap-1.5 p-1.5 bg-[#eeeeef] rounded-2xl shadow-inner overflow-x-auto self-start lg:self-auto border border-[#e2e8f0]">
-            <button
-              type="button"
-              onClick={() => setLabMode('benchmark')}
-              className={`px-3 py-1.5 rounded-xl text-[12px] font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+          <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+            <div>
+              <h1 className="font-serif text-[32px] md:text-[42px] font-light text-[#1B1B1B] tracking-tight">
+                ADSA Performance Lab
+              </h1>
+              <p className="text-[14px] text-[#5C5A56] mt-1 max-w-3xl leading-relaxed">
+                Real-time structural diagnostics, traversal traces, and rigorous algorithmic benchmarks across Python BST, AVL trees, and multi-bucket Price Index.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#2D5A3D]/10 text-[#2D5A3D] text-[11px] font-mono border border-[#2D5A3D]/30">
+                <span className="w-2 h-2 rounded-full bg-[#2D5A3D] animate-pulse" />
+                Live In-Memory Indexes (50 Products)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="flex border-b border-[#D9D4CC] mb-8">
+          <button
+            type="button"
+            onClick={() => setMainTab('backend-working')}
+            className={`pb-3 px-1 text-[14px] font-medium transition-colors border-b-2 mr-8 flex items-center gap-2 ${
+              mainTab === 'backend-working'
+                ? 'border-[#1B1B1B] text-[#1B1B1B]'
+                : 'border-transparent text-[#5C5A56] hover:text-[#1B1B1B]'
+            }`}
+          >
+            <span className="material-symbols-outlined text-[17px]">account_tree</span>
+            <span>Backend Working (Live 50 Catalogue Products)</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMainTab('synthetic-benchmark')}
+            className={`pb-3 px-1 text-[14px] font-medium transition-colors border-b-2 flex items-center gap-2 ${
+              mainTab === 'synthetic-benchmark'
+                ? 'border-[#1B1B1B] text-[#1B1B1B]'
+                : 'border-transparent text-[#5C5A56] hover:text-[#1B1B1B]'
+            }`}
+          >
+            <span className="material-symbols-outlined text-[17px]">bar_chart</span>
+            <span>Synthetic Benchmarks (N = 1,000 to 100,000)</span>
+          </button>
+        </div>
+
+        {/* Tab 1: Backend Working (Live 50 Products) */}
+        {mainTab === 'backend-working' && (
+          <div className="space-y-6">
+            <SyncStatusSection />
+            <LiveTreeViewer />
+            <SearchLabSection />
+            <CompareMethodsSection />
+            <SandboxDemoSection />
+            <ExplainPanelSection />
+          </div>
+        )}
+
+        {/* Tab 2: Synthetic Benchmark Suite */}
+        {mainTab === 'synthetic-benchmark' && (
+          <div className="space-y-6">
+            {/* 1. Header & Prototype Modes Bar */}
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-6 bg-[#FDFCF9] border border-[#D9D4CC]">
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-2 text-[12px] text-[#5C5A56]">
+                  <span className="uppercase tracking-wider font-semibold">Engine Diagnostics</span>
+                  <span className="material-symbols-outlined text-[14px]">chevron_right</span>
+                  <span className="font-semibold text-[#1B1B1B]">ADSA Mini Project Lab</span>
+                  <span className="material-symbols-outlined text-[14px]">chevron_right</span>
+                  <span className="font-bold text-[#2D5A3D]">BST vs AVL Comparative Index Benchmark</span>
+                </div>
+
+                <div className="flex items-center gap-3 flex-wrap mt-1">
+                  <h2 className="font-serif text-[22px] md:text-[26px] font-light text-[#1B1B1B]">
+                    Synthetic Experiment Suite
+                  </h2>
+                  <span className="px-3 py-0.5 bg-[#2D5A3D]/10 text-[#2D5A3D] border border-[#2D5A3D]/30 text-[11px] font-mono font-bold flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[14px]">terminal</span>
+                    Python 3.14 Custom Algorithms
+                  </span>
+                  <span className="px-2.5 py-0.5 bg-[#F5F1EA] text-[#5C5A56] border border-[#D9D4CC] text-[11px] font-mono flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2D5A3D] animate-pulse"></span>
+                    time.perf_counter() Engine Active
+                  </span>
+                </div>
+
+                <p className="text-[13px] text-[#5C5A56] max-w-3xl leading-relaxed mt-1">
+                  Explore empirical runtime, comparison counts, and tree height differences between an Unbalanced Binary Search Tree (BST) and a Self-Balancing AVL Tree measured across large synthetic datasets (up to 100,000 nodes).
+                </p>
+              </div>
+
+              {/* Prototype Mode Switcher */}
+              <div className="flex items-center gap-1.5 p-1.5 bg-[#F5F1EA] border border-[#D9D4CC] overflow-x-auto self-start lg:self-auto">
+                <button
+                  type="button"
+                  onClick={() => setLabMode('benchmark')}
+                  className={`px-3 py-1.5 text-[12px] font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap ${
                 labMode === 'benchmark' ? 'bg-white text-primary shadow-xs' : 'text-[#464555] hover:text-[#1a1c1d]'
               }`}
             >
@@ -1410,6 +1488,8 @@ export function AdsaLabPage() {
           </div>
         </div>
       </div>
-    </div>
+    )}
+  </div>
+</div>
   );
 }
