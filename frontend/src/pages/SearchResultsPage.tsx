@@ -26,7 +26,10 @@ export function SearchResultsPage() {
   }, [queryParam]);
 
   useEffect(() => {
-    if (categoryParam) setSelectedCategory(categoryParam);
+    if (categoryParam) {
+      const normalized = categoryParam.toLowerCase() === 'footwear' ? 'Fashion' : categoryParam;
+      setSelectedCategory(normalized);
+    }
   }, [categoryParam]);
 
   // Execute search via live backend with fallback to product store

@@ -22,15 +22,15 @@ const CATEGORY_CONFIG: CategoryTileConfig[] = [
   },
   {
     key: 'Fashion',
-    name: 'Fashion',
+    name: 'Footwear',
     route: '/search?category=Fashion',
-    image: '/products/SS-0016.webp',
+    image: '/categories/footwear.jpg',
   },
   {
     key: 'Home & Living',
     name: 'Home & Living',
     route: '/search?category=Home%20%26%20Living',
-    image: '/products/SS-0029.webp',
+    image: '/categories/home-living.jpg',
   },
   {
     key: 'Accessories',
@@ -115,3 +115,4 @@ export function CategoryTilesSection({ products }: CategoryTilesSectionProps) {
     </section>
   );
 }
+
