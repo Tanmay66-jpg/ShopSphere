@@ -102,6 +102,135 @@ def test_startup_and_seeding_idempotence():
             pass
 
 
+def test_safe_seed_upsert_mechanism():
+    """Verify safe upsert updates existing SKUs, inserts new SKUs, and avoids duplicates."""
+    temp_dir = tempfile.mkdtemp()
+    test_db = os.path.join(temp_dir, "test_upsert.db")
+    db_url = f"sqlite:///{test_db}"
+    engine = get_engine(db_url)
+    create_tables(engine)
+
+    service = ProductService(engine=engine, auto_rebuild=False)
+
+    # 1. Initial seed with 2 products
+    initial_seeds = [
+        {
+            "sku": "TEST-001",
+            "name": "Alpha Item",
+            "category": "Electronics",
+            "description": "Original description",
+            "price_paise": 100000,
+            "stock_quantity": 10,
+            "is_available": True,
+            "rating": 4.5,
+            "rating_count": 50,
+            "image_url": "/products/TEST-001.webp",
+        },
+        {
+            "sku": "TEST-002",
+            "name": "Beta Item",
+            "category": "Fashion",
+            "description": "Beta original",
+            "price_paise": 200000,
+            "stock_quantity": 20,
+            "is_available": True,
+            "rating": 4.0,
+            "rating_count": 25,
+            "image_url": "/products/TEST-002.webp",
+        },
+    ]
+
+    stats1 = service.sync_from_seed(initial_seeds)
+    assert stats1["created"] == 2
+    assert stats1["updated"] == 0
+    assert stats1["unchanged"] == 0
+    assert service.id_avl.size() == 2
+
+    # Verify ID was assigned
+    with get_db_session(engine) as session:
+        p1 = session.scalar(select(Product).where(Product.sku == "TEST-001"))
+        assert p1 is not None
+        p1_id = p1.id
+        assert p1.name == "Alpha Item"
+        assert p1.price_paise == 100000
+
+    # 2. Update TEST-001, leave TEST-002 unchanged, and introduce TEST-003
+    modified_seeds = [
+        {
+            "sku": "TEST-001",
+            "name": "Alpha Item Revised",
+            "category": "Electronics",
+            "description": "Updated description",
+            "price_paise": 150000,
+            "stock_quantity": 15,
+            "is_available": True,
+            "rating": 4.8,
+            "rating_count": 100,
+            "image_url": "/products/TEST-001-NEW.webp",
+        },
+        {
+            "sku": "TEST-002",
+            "name": "Beta Item",
+            "category": "Fashion",
+            "description": "Beta original",
+            "price_paise": 200000,
+            "stock_quantity": 20,
+            "is_available": True,
+            "rating": 4.0,
+            "rating_count": 25,
+            "image_url": "/products/TEST-002.webp",
+        },
+        {
+            "sku": "TEST-003",
+            "name": "Gamma Item",
+            "category": "Accessories",
+            "description": "Gamma description",
+            "price_paise": 300000,
+            "stock_quantity": 30,
+            "is_available": True,
+            "rating": 4.2,
+            "rating_count": 10,
+            "image_url": "/products/TEST-003.webp",
+        },
+    ]
+
+    stats2 = service.sync_from_seed(modified_seeds)
+    assert stats2["created"] == 1  # TEST-003 inserted
+    assert stats2["updated"] == 1  # TEST-001 updated
+    assert stats2["unchanged"] == 1  # TEST-002 untouched
+    assert service.id_avl.size() == 3
+
+    # Verify TEST-001 preserved its original primary key ID and updated its fields
+    with get_db_session(engine) as session:
+        p1_recheck = session.scalar(select(Product).where(Product.sku == "TEST-001"))
+        assert p1_recheck is not None
+        assert p1_recheck.id == p1_id, "Upsert must preserve original product ID"
+        assert p1_recheck.name == "Alpha Item Revised"
+        assert p1_recheck.price_paise == 150000
+        assert p1_recheck.image_url == "/products/TEST-001-NEW.webp"
+        assert p1_recheck.rating == 4.8
+        assert p1_recheck.rating_count == 100
+
+        total_rows = len(list(session.scalars(select(Product)).all()))
+        assert total_rows == 3
+
+    # In-memory indexes verified
+    assert service.id_bst.size() == 3
+    assert service.id_avl.size() == 3
+    assert service.price_index.total_product_count() == 3
+    alpha_in_avl = service.id_avl.get(p1_id)
+    assert alpha_in_avl is not None
+    assert alpha_in_avl.name == "Alpha Item Revised"
+
+    # Cleanup
+    drop_tables(engine)
+    if os.path.exists(test_db):
+        try:
+            os.remove(test_db)
+        except OSError:
+            pass
+
+
 def test_health_telemetry_endpoint(isolated_env):
     """Verify /api/health returns operational status and accurate diagnostic metrics."""
     client, service, _ = isolated_env

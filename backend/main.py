@@ -40,21 +40,16 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
         # Initialize ProductService singleton
         service = ProductService(engine=engine, auto_rebuild=False)
 
-        # Check if catalogue is empty; if so, populate initial seed data
-        with get_db_session(engine) as session:
-            count = len(list(session.scalars(select(Product.id)).all()))
-            if count == 0:
-                logger.info("Catalogue database is empty. Auto-seeding %d products...", len(SEED_PRODUCTS))
-                for seed in SEED_PRODUCTS:
-                    try:
-                        service.create_product(seed)
-                    except Exception as e:
-                        logger.warning("Failed to seed product %s: %s", seed.get("sku"), e)
-                logger.info("Seed catalogue populated successfully.")
-            else:
-                # Rebuild indexes from existing records
-                service.rebuild_indexes()
-                logger.info("Rebuilt in-memory indexes from %d existing products.", service.id_avl.size())
+        # Safely synchronise catalogue database from seed_data.py via SKU upsert
+        logger.info("Synchronizing catalogue with seed_data.py (%d products)...", len(SEED_PRODUCTS))
+        stats = service.sync_from_seed(SEED_PRODUCTS)
+        logger.info(
+            "Catalogue synchronized: %d created, %d updated, %d unchanged. Total indexed: %d",
+            stats["created"],
+            stats["updated"],
+            stats["unchanged"],
+            service.id_avl.size(),
+        )
 
         # Attach service to application state for route handlers and tests
         app.state.product_service = service

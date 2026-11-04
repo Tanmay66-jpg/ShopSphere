@@ -2,7 +2,7 @@ import type { Product, ProductFilterState, SearchResponse } from '../types/produ
 import { INITIAL_PRODUCTS } from './mockData';
 import { api } from './api';
 
-const STORAGE_KEY = 'shopsphere_products_v1';
+const STORAGE_KEY = 'shopsphere_products_v2';
 
 type Listener = () => void;
 

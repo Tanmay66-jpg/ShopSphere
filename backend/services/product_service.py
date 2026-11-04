@@ -110,6 +110,120 @@ class ProductService:
 
             return len(products)
 
+    def sync_from_seed(self, seed_products: List[Dict[str, Any]]) -> Dict[str, int]:
+        """Safely synchronise catalogue database with seed_products using SKU as unique key.
+
+        Upsert Semantics:
+        - When SKU exists: updates name, category, description, price_paise, stock_quantity,
+          rating, rating_count, is_available, and image_url.
+        - When SKU does not exist: inserts a new Product record.
+        - Preserves existing database records and any unrelated user data.
+        - Avoids duplicate records and never performs destructive drops or deletes.
+        - Rebuilds in-memory BST, AVL trees, and PriceIndex after commit.
+
+        Returns:
+            Dict with counts of 'created', 'updated', 'unchanged', and 'total_indexed'.
+        """
+        created = 0
+        updated = 0
+        unchanged = 0
+
+        with get_db_session(self.engine) as session:
+            stmt = select(Product)
+            existing_by_sku: Dict[str, Product] = {
+                p.sku: p for p in session.scalars(stmt).all()
+            }
+
+            for item in seed_products:
+                sku = str(item.get("sku", "")).strip()
+                if not sku:
+                    logger.warning("Skipping seed item with missing or empty SKU: %s", item)
+                    continue
+
+                name = str(item.get("name", "")).strip()
+                if not name:
+                    logger.warning("Skipping seed SKU '%s' with empty name", sku)
+                    continue
+
+                norm_name = Product.normalize_name(name)
+                category = str(item.get("category", "")).strip()
+                description = str(item.get("description", "")).strip()
+                price_paise = self._parse_price_paise(item, is_update=False)
+                if price_paise is None or price_paise <= 0:
+                    logger.warning("Skipping seed SKU '%s' with invalid price: %s", sku, item.get("price_paise"))
+                    continue
+
+                stock_quantity = int(item.get("stock_quantity", 0))
+                raw_avail = item.get("is_available")
+                is_available = bool(raw_avail) if raw_avail is not None else (stock_quantity > 0)
+                image_url = str(item.get("image_url", "")).strip()
+                rating = float(item.get("rating", 4.5))
+                rating_count = int(item.get("rating_count", 0))
+
+                existing = existing_by_sku.get(sku)
+                if existing is not None:
+                    # Check whether any field was modified
+                    changed = (
+                        existing.name != name
+                        or existing.normalized_name != norm_name
+                        or existing.category != category
+                        or existing.description != description
+                        or existing.price_paise != price_paise
+                        or existing.stock_quantity != stock_quantity
+                        or existing.is_available != is_available
+                        or existing.image_url != image_url
+                        or abs(existing.rating - rating) > 1e-4
+                        or existing.rating_count != rating_count
+                    )
+                    if changed:
+                        existing.name = name
+                        existing.normalized_name = norm_name
+                        existing.category = category
+                        existing.description = description
+                        existing.price_paise = price_paise
+                        existing.stock_quantity = stock_quantity
+                        existing.is_available = is_available
+                        existing.image_url = image_url
+                        existing.rating = rating
+                        existing.rating_count = rating_count
+                        updated += 1
+                    else:
+                        unchanged += 1
+                else:
+                    new_product = Product(
+                        sku=sku,
+                        name=name,
+                        normalized_name=norm_name,
+                        category=category,
+                        description=description,
+                        price_paise=price_paise,
+                        stock_quantity=stock_quantity,
+                        is_available=is_available,
+                        image_url=image_url,
+                        rating=rating,
+                        rating_count=rating_count,
+                    )
+                    session.add(new_product)
+                    existing_by_sku[sku] = new_product
+                    created += 1
+
+            session.commit()
+
+        total_indexed = self.rebuild_indexes()
+        logger.info(
+            "Synchronised seed catalogue: %d created, %d updated, %d unchanged (Total indexed: %d)",
+            created,
+            updated,
+            unchanged,
+            total_indexed,
+        )
+        return {
+            "created": created,
+            "updated": updated,
+            "unchanged": unchanged,
+            "total_indexed": total_indexed,
+        }
+
 
     # --------------------------------------------------------------------------
     # Validation Helpers
