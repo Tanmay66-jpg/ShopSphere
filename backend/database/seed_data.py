@@ -113,7 +113,7 @@ SEED_PRODUCTS: List[Dict[str, Any]] = [
         "stock_quantity": 13,
         "is_available": True,
         "rating": 4.3,
-        "rating_count": 1145,
+        "rating_count": 1555,
         "image_url": '/products/SS-0009.webp',
     },
     {
@@ -147,7 +147,7 @@ SEED_PRODUCTS: List[Dict[str, Any]] = [
         "description": 'Samsung Galaxy A55 5G Smartphone for everyday use. Replace this demo description with verified specifications before production.',
         "price_paise": 799900,
         "stock_quantity": 36,
-        "is_available": False,
+        "is_available": True,
         "rating": 4.7,
         "rating_count": 1455,
         "image_url": '/products/SS-0012.webp',

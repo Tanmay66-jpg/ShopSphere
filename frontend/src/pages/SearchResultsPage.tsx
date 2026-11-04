@@ -5,6 +5,8 @@ import { ProductCard } from '../components/product/ProductCard';
 import type { Product, SearchResponse } from '../types/product';
 
 
+const MAX_CATALOGUE_PRICE = 200000;
+
 export function SearchResultsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -16,7 +18,7 @@ export function SearchResultsPage() {
   const [searchBy, setSearchBy] = useState<'name' | 'id' | 'price'>('name');
   const [selectedCategory, setSelectedCategory] = useState(categoryParam);
   const [minPrice, setMinPrice] = useState<number>(0);
-  const [maxPrice, setMaxPrice] = useState<number>(25000);
+  const [maxPrice, setMaxPrice] = useState<number>(MAX_CATALOGUE_PRICE);
   const [inStockOnly, setInStockOnly] = useState(false);
   const [sortBy, setSortBy] = useState<'id' | 'name' | 'price-asc' | 'price-desc'>('name');
 
@@ -38,8 +40,8 @@ export function SearchResultsPage() {
       query: searchQuery,
       searchBy,
       category: selectedCategory,
-      minPrice,
-      maxPrice,
+      minPrice: minPrice > 0 ? minPrice : undefined,
+      maxPrice: maxPrice < MAX_CATALOGUE_PRICE ? maxPrice : undefined,
       inStockOnly,
       sortBy,
     })
@@ -54,8 +56,8 @@ export function SearchResultsPage() {
         query: searchQuery,
         searchBy,
         category: selectedCategory,
-        minPrice,
-        maxPrice,
+        minPrice: minPrice > 0 ? minPrice : undefined,
+        maxPrice: maxPrice < MAX_CATALOGUE_PRICE ? maxPrice : undefined,
         inStockOnly,
         sortBy,
       })
@@ -101,7 +103,7 @@ export function SearchResultsPage() {
     setSearchQuery('');
     setSelectedCategory('All Categories');
     setMinPrice(0);
-    setMaxPrice(25000);
+    setMaxPrice(MAX_CATALOGUE_PRICE);
     setInStockOnly(false);
     setSearchParams({});
   };
@@ -217,16 +219,16 @@ export function SearchResultsPage() {
               </div>
             )}
 
-            {(minPrice > 0 || maxPrice < 25000) && (
+            {(minPrice > 0 || maxPrice < MAX_CATALOGUE_PRICE) && (
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed shadow-2xs font-semibold">
                 <span>
-                  Price: ₹{minPrice.toLocaleString('en-IN')} – ₹{maxPrice.toLocaleString('en-IN')}
+                  Price: ₹{minPrice.toLocaleString('en-IN')} – {maxPrice >= MAX_CATALOGUE_PRICE ? '₹2,00,000+' : `₹${maxPrice.toLocaleString('en-IN')}`}
                 </span>
                 <button
                   type="button"
                   onClick={() => {
                     setMinPrice(0);
-                    setMaxPrice(25000);
+                    setMaxPrice(MAX_CATALOGUE_PRICE);
                   }}
                   className="hover:text-red-600 transition-colors"
                 >
@@ -340,21 +342,21 @@ export function SearchResultsPage() {
                   Price Range (INR)
                 </label>
                 <span className="text-[12px] font-mono font-bold text-primary">
-                  ₹{maxPrice.toLocaleString('en-IN')}
+                  {maxPrice >= MAX_CATALOGUE_PRICE ? '₹2,00,000+' : `₹${maxPrice.toLocaleString('en-IN')}`}
                 </span>
               </div>
               <input
                 type="range"
                 min="1000"
-                max="25000"
-                step="500"
+                max={MAX_CATALOGUE_PRICE}
+                step="2500"
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 className="w-full accent-primary cursor-pointer"
               />
               <div className="flex items-center justify-between text-[11px] text-[#64748b] font-mono mt-1">
                 <span>₹1,000</span>
-                <span>₹25,000+</span>
+                <span>₹2,00,000+</span>
               </div>
             </div>
 
