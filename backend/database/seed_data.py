@@ -61,7 +61,7 @@ SEED_PRODUCTS: List[Dict[str, Any]] = [
         "name": 'Sony WF-1000XM5 Wireless Earbuds',
         "category": 'Electronics',
         "description": 'Sony WF-1000XM5 Wireless Earbuds for everyday use. Replace this demo description with verified specifications before production.',
-        "price_paise": 249900,
+        "price_paise": 899900,
         "stock_quantity": 12,
         "is_available": True,
         "rating": 4.6,

@@ -10,13 +10,13 @@ class ProductStore {
   private products: Product[] = [];
   private isOnline: boolean = true;
   private listeners: Set<Listener> = new Set();
-  private isFetching: boolean = false;
+  private fetchPromise: Promise<Product[]> | null = null;
 
   constructor() {
     this.loadFromStorage();
-    // Eagerly attempt initial sync with backend
-    this.fetchProducts().catch(() => {
-      // Handled gracefully in fetchProducts
+    // Eagerly attempt initial sync with live backend
+    this.fetchProducts().catch((err) => {
+      console.warn('[ProductStore] Initial backend synchronization warning:', err);
     });
   }
 
@@ -78,27 +78,33 @@ class ProductStore {
 
   /**
    * Fetch all products from live FastAPI backend.
-   * Updates local cache and localStorage; falls back to cache if offline.
+   * Updates local cache and localStorage; rejects with explicit error if offline.
    */
   public async fetchProducts(params?: { category?: string; limit?: number; offset?: number }): Promise<Product[]> {
-    if (this.isFetching) return this.products;
-    this.isFetching = true;
-    try {
-      const liveProducts = await api.getProducts(params);
-      if (Array.isArray(liveProducts) && liveProducts.length > 0) {
-        this.products = liveProducts;
-        this.isOnline = true;
-        this.saveToStorage();
-        this.notify();
-      }
-      return this.products;
-    } catch (err) {
-      this.isOnline = false;
-      console.info('FastAPI backend offline; using local cached catalogue:', err);
-      return this.products;
-    } finally {
-      this.isFetching = false;
+    if (this.fetchPromise) {
+      return this.fetchPromise;
     }
+
+    this.fetchPromise = (async () => {
+      try {
+        const liveProducts = await api.getProducts(params);
+        if (Array.isArray(liveProducts) && liveProducts.length > 0) {
+          this.products = liveProducts;
+          this.isOnline = true;
+          this.saveToStorage();
+          this.notify();
+        }
+        return this.products;
+      } catch (err) {
+        this.isOnline = false;
+        console.error('[ProductStore] FastAPI backend request failed. Ensure backend is running on http://127.0.0.1:8001:', err);
+        return this.products;
+      } finally {
+        this.fetchPromise = null;
+      }
+    })();
+
+    return this.fetchPromise;
   }
 
   /**
@@ -119,8 +125,9 @@ class ProductStore {
         this.notify();
         return product;
       }
-    } catch {
+    } catch (err) {
       this.isOnline = false;
+      console.error(`[ProductStore] Failed to fetch product ID ${id} from live API:`, err);
     }
     return this.getById(id);
   }
@@ -232,7 +239,7 @@ class ProductStore {
       }
     } catch (e) {
       this.isOnline = false;
-      console.info('Backend search failed, using local search fallback:', e);
+      console.error('[ProductStore] Backend search request failed on http://127.0.0.1:8001/api/search:', e);
     }
     return this.search(filters);
   }

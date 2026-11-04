@@ -80,15 +80,15 @@ export const INITIAL_PRODUCTS: Product[] = [
     "normalized_name": "sony wf-1000xm5 wireless earbuds",
     "category": "Electronics",
     "description": "Sony WF-1000XM5 Wireless Earbuds for everyday use. Replace this demo description with verified specifications before production.",
-    "price": 2499.0,
-    "price_paise": 249900,
+    "price": 8999.0,
+    "price_paise": 899900,
     "stock_quantity": 12,
     "is_available": true,
     "rating": 4.6,
     "rating_count": 1217,
     "image_url": "/products/SS-0005.webp",
     "created_at": "2026-11-04T07:39:25.911577",
-    "updated_at": "2026-11-04T07:39:25.911580"
+    "updated_at": "2026-11-04T08:35:37.277105"
   },
   {
     "id": 6,

@@ -87,21 +87,28 @@ def sync_catalogue():
     print(f"\n[Frontend Mock Synchronizer]")
     print(f"  - Synchronized {len(frontend_records)} products into {mock_data_path}")
 
-    # 3. Notify running backend server if alive
-    try:
-        req = urllib.request.Request(
-            "http://127.0.0.1:8000/api/adsa/sync",
-            data=b"{}",
-            headers={"Content-Type": "application/json"},
-            method="POST",
-        )
-        with urllib.request.urlopen(req, timeout=1.5) as resp:
-            if resp.status == 200:
-                print("\n[Running Server Notification]")
-                print("  - Successfully notified active backend (http://127.0.0.1:8000) to reload in-memory indexes.")
-    except Exception:
+    # 3. Notify running backend server if alive (try port 8001 first, then 8000)
+    notified = False
+    for port in [8001, 8000]:
+        try:
+            req = urllib.request.Request(
+                f"http://127.0.0.1:{port}/api/adsa/sync",
+                data=b"{}",
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=1.5) as resp:
+                if resp.status == 200:
+                    print(f"\n[Running Server Notification]")
+                    print(f"  - Successfully notified active backend (http://127.0.0.1:{port}) to reload in-memory indexes.")
+                    notified = True
+                    break
+        except Exception:
+            continue
+
+    if not notified:
         print("\n[Running Server Notification]")
-        print("  - Backend server is not running on port 8000; indexes will load on next startup.")
+        print("  - Backend server is not running on port 8001 or 8000; indexes will load on next startup.")
 
     print("\nSynchronization complete. All 50 products are up to date.")
 
