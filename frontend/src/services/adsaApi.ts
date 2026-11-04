@@ -187,3 +187,4 @@ export const adsaApi = {
   getInsertionOrder: () =>
     fetchAdsaJson<InsertionOrderResponse>('/insertion-order'),
 };
+
