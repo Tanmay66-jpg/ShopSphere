@@ -9,6 +9,8 @@ import { SearchResultsPage } from './pages/SearchResultsPage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { AdminDashboardPage } from './pages/AdminDashboardPage';
 import { AdsaLabPage } from './pages/AdsaLabPage';
+import { WishlistPage } from './pages/WishlistPage';
+import { CartPage } from './pages/CartPage';
 
 export function App() {
   return (
@@ -23,6 +25,9 @@ export function App() {
             <Route path="/search" element={<SearchResultsPage />} />
             <Route path="/products/:id" element={<ProductDetailsPage />} />
             <Route path="/product/:id" element={<ProductDetailsPage />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/bag" element={<Navigate to="/cart" replace />} />
             <Route path="/admin" element={<AdminDashboardPage />} />
             <Route path="/adsa-lab" element={<AdsaLabPage />} />
             <Route path="/adsa" element={<Navigate to="/adsa-lab" replace />} />

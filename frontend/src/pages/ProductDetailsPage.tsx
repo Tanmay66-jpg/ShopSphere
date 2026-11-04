@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { productStore } from '../services/productStore';
 import { uiStore } from '../services/uiStore';
 import { ProductCard } from '../components/product/ProductCard';
@@ -8,7 +8,6 @@ import type { Product } from '../types/product';
 
 export function ProductDetailsPage() {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
 
   // Validate parsed ID
   const parsedId = Number(id);
@@ -29,6 +28,21 @@ export function ProductDetailsPage() {
   const [selectedImage, setSelectedImage] = useState<string>(product?.image_url || '');
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState('Matte Black');
+  const [isWishlisted, setIsWishlisted] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (product) {
+      setIsWishlisted(uiStore.isWishlisted(product.id));
+    }
+    const unsub = uiStore.subscribeWishlist(() => {
+      if (product) {
+        setIsWishlisted(uiStore.isWishlisted(product.id));
+      }
+    });
+    return () => {
+      unsub();
+    };
+  }, [product]);
 
   useEffect(() => {
     if (!isValidId) {
@@ -424,17 +438,37 @@ export function ProductDetailsPage() {
                   </span>
                 </button>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    handleAddToCart();
-                    navigate('/search');
-                  }}
-                  disabled={isOOS}
-                  className="w-full h-11 rounded-2xl bg-[#f3f3f4] hover:bg-[#e8e8e9] text-[#1a1c1d] text-[13px] font-semibold transition-all disabled:opacity-50"
-                >
-                  Instant Buy Now (Fast Dispatch)
-                </button>
+                <div className="grid grid-cols-2 gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (product) uiStore.toggleWishlist(product);
+                    }}
+                    aria-label={isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                    className="w-full h-11 rounded-2xl border border-[#cbd5e1] bg-white hover:bg-[#f8fafc] text-[#1a1c1d] text-[13px] font-semibold transition-all flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    <span
+                      className={`material-symbols-outlined text-[18px] transition-colors ${
+                        isWishlisted ? 'text-[#8B2020]' : 'text-[#64748b]'
+                      }`}
+                      style={isWishlisted ? { fontVariationSettings: "'FILL' 1" } : undefined}
+                    >
+                      favorite
+                    </span>
+                    <span>{isWishlisted ? 'Saved in Wishlist' : 'Save to Wishlist'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleAddToCart();
+                    }}
+                    disabled={isOOS}
+                    className="w-full h-11 rounded-2xl bg-[#f3f3f4] hover:bg-[#e8e8e9] text-[#1a1c1d] text-[13px] font-semibold transition-all disabled:opacity-50"
+                  >
+                    Instant Buy Now
+                  </button>
+                </div>
               </div>
 
               {/* Trust Badges */}

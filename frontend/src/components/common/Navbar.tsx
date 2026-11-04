@@ -78,37 +78,11 @@ export function Navbar() {
   };
 
   const handleWishlistClick = () => {
-    if (wishlistCount > 0) {
-      uiStore.showToast(
-        'Wishlist Active',
-        `${wishlistCount} item(s) saved in your wishlist. Exploring catalogue...`,
-        'info'
-      );
-    } else {
-      uiStore.showToast(
-        'Wishlist Empty',
-        'Explore products and click the heart icon to save items.',
-        'info'
-      );
-    }
-    navigate('/search');
+    navigate('/wishlist');
   };
 
   const handleCartClick = () => {
-    if (cartCount > 0) {
-      uiStore.showToast(
-        'Shopping Bag',
-        `${cartCount} item(s) in bag. Ready for checkout.`,
-        'success'
-      );
-    } else {
-      uiStore.showToast(
-        'Shopping Bag Empty',
-        'Browse the catalogue and add items to your bag.',
-        'info'
-      );
-    }
-    navigate('/search');
+    navigate('/cart');
   };
 
   const isCategoryActive = (cat: string) => {

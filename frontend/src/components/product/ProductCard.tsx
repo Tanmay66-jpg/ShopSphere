@@ -23,7 +23,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const handleWishlistToggle = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    uiStore.toggleWishlist(product.id);
+    uiStore.toggleWishlist(product);
   };
 
   const handleQuickView = (e: React.MouseEvent) => {
@@ -44,24 +44,29 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="product-card group flex flex-col border border-[#D9D4CC] rounded-sm bg-[#FDFCF9] h-full w-full overflow-hidden relative">
-      <Link to={`/products/${product.id}`} className="flex-1 flex flex-col cursor-pointer">
+      {/* Top Action: Wishlist Heart Button (Placed outside Link to prevent any unwanted navigation) */}
+      <button
+        type="button"
+        onClick={handleWishlistToggle}
+        aria-label={isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
+        aria-pressed={isWishlisted}
+        className="absolute top-2.5 right-2.5 z-20 w-8 h-8 rounded-full bg-[#FDFCF9]/90 hover:bg-[#FDFCF9] shadow-sm flex items-center justify-center text-[#8A8278] hover:text-[#8B2020] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B1B1B]"
+      >
+        <span
+          className={`material-symbols-outlined text-[18px] transition-colors ${isWishlisted ? 'text-[#8B2020]' : ''}`}
+          style={isWishlisted ? { fontVariationSettings: "'FILL' 1" } : undefined}
+        >
+          favorite
+        </span>
+      </button>
+
+      {/* Main Clickable Area: Links directly to Product Details */}
+      <Link
+        to={`/products/${product.id}`}
+        className="flex-1 flex flex-col cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1B1B1B]"
+      >
         {/* Image Frame */}
         <div className="relative w-full aspect-[4/5] bg-[#F5F1EA] overflow-hidden flex-shrink-0">
-          {/* Wishlist heart */}
-          <button
-            type="button"
-            onClick={handleWishlistToggle}
-            aria-label="Add to Wishlist"
-            className="absolute top-2.5 right-2.5 z-10 w-7 h-7 bg-[#FDFCF9]/90 flex items-center justify-center text-[#8A8278] hover:text-[#8B2020] transition-colors"
-          >
-            <span
-              className={`material-symbols-outlined text-[17px] ${isWishlisted ? 'text-[#8B2020]' : ''}`}
-              style={isWishlisted ? { fontVariationSettings: "'FILL' 1" } : undefined}
-            >
-              favorite
-            </span>
-          </button>
-
           <img
             src={product.image_url || svgPlaceholder}
             alt={product.name}
@@ -77,12 +82,12 @@ export function ProductCard({ product }: ProductCardProps) {
             }}
           />
 
-          {/* Quick View on hover */}
+          {/* Quick View Button on hover */}
           <div className="absolute inset-x-0 bottom-0 flex opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
             <button
               type="button"
               onClick={handleQuickView}
-              className="w-full py-2.5 bg-[#1B1B1B]/90 text-white text-[11px] font-medium tracking-wide flex items-center justify-center gap-1.5"
+              className="w-full py-2.5 bg-[#1B1B1B]/90 text-white text-[11px] font-medium tracking-wide flex items-center justify-center gap-1.5 hover:bg-[#1B1B1B]"
             >
               <span className="material-symbols-outlined text-[15px]">visibility</span>
               Quick View
@@ -104,12 +109,12 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
       </Link>
 
-      {/* Add to Bag */}
+      {/* Add to Bag (Always stays in-place, never navigates away) */}
       <div className="px-3 pb-3 pt-2">
         <button
           type="button"
           onClick={handleAddToCart}
-          className="w-full py-2 bg-[#1B1B1B] text-white text-[12px] font-medium tracking-wide hover:bg-[#2D5A3D] transition-colors active:scale-[0.99]"
+          className="w-full py-2 bg-[#1B1B1B] text-white text-[12px] font-medium tracking-wide hover:bg-[#2D5A3D] transition-colors active:scale-[0.99] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1B1B1B]"
         >
           Add to Bag
         </button>

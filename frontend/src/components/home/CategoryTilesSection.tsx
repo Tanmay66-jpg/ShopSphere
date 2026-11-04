@@ -22,7 +22,7 @@ const CATEGORY_CONFIG: CategoryTileConfig[] = [
   },
   {
     key: 'Fashion',
-    name: 'Footwear',
+    name: 'Fashion',
     route: '/search?category=Fashion',
     image: '/categories/footwear.jpg',
   },

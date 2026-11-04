@@ -32,6 +32,23 @@ export function QuickViewModal() {
         className="relative w-full max-w-2xl bg-white rounded-3xl shadow-[0_25px_50px_-12px_rgba(15,23,42,0.25)] border border-[#e2e8f0] overflow-hidden flex flex-col md:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Wishlist Heart Button */}
+        <button
+          type="button"
+          onClick={() => uiStore.toggleWishlist(product)}
+          aria-label={uiStore.isWishlisted(product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
+          className="absolute top-4 right-14 z-20 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-[#464555] hover:text-[#8B2020] shadow-sm transition-colors"
+        >
+          <span
+            className={`material-symbols-outlined text-[18px] ${
+              uiStore.isWishlisted(product.id) ? 'text-[#8B2020]' : ''
+            }`}
+            style={uiStore.isWishlisted(product.id) ? { fontVariationSettings: "'FILL' 1" } : undefined}
+          >
+            favorite
+          </span>
+        </button>
+
         {/* Close Button */}
         <button
           type="button"
