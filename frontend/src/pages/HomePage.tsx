@@ -140,17 +140,17 @@ export function HomePage() {
               {
                 label: 'Electronics',
                 to: '/search?category=Electronics',
-                img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85',
+                img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb26kN89Pk77a1nHJvx49j96J-LEqK-pVZ92bc9fIUTg&s=10',
               },
               {
-                label: 'Fashion',
-                to: '/search?category=Fashion',
+                label: 'Footwear',
+                to: '/search?category=Footwear',
                 img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85',
               },
               {
                 label: 'Home & Living',
                 to: '/search?category=Home%20%26%20Living',
-                img: 'https://images.unsplash.com/photo-1580481077195-c9fa4d173c3d?auto=format&fit=crop&w=900&q=85',
+                img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkeNanLwT2fTv7eILtCKUskCsVyNmwnWO6LT_8T9PVhA&s=10',
               },
               {
                 label: 'Accessories',

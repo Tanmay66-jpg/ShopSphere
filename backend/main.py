@@ -1,5 +1,5 @@
 """ShopSphere Backend Application Entrypoint.
-
+ 
 FastAPI REST API server integrating:
 - SQLite persistence via SQLAlchemy 2.0.
 - Multi-key in-memory search trees (ID BST, ID AVL, Name AVL, PriceIndex).
@@ -57,6 +57,28 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
         # Attach service to application state for route handlers and tests
         app.state.product_service = service
+
+        # Startup validation: verify each product's image file exists and log warning if missing
+        import os
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        public_dir = os.path.join(base_dir, "frontend", "public")
+        missing_count = 0
+        for _, p in service.id_avl.inorder():
+            img_url = (p.image_url or "").strip()
+            if img_url.startswith("/"):
+                file_rel = img_url.lstrip("/")
+                file_full = os.path.join(public_dir, file_rel.replace("/", os.sep))
+                if not os.path.exists(file_full):
+                    missing_count += 1
+                    logger.warning("[Startup Image Validation] Product SKU '%s' (ID %d) missing image file: %s", p.sku, p.id, file_full)
+            elif not img_url:
+                missing_count += 1
+                logger.warning("[Startup Image Validation] Product SKU '%s' (ID %d) has no image_url configured.", p.sku, p.id)
+
+        if missing_count == 0:
+            logger.info("Startup image validation passed: all %d product image files exist on disk.", service.id_avl.size())
+        else:
+            logger.warning("Startup image validation finished with %d missing or unconfigured image(s).", missing_count)
 
     logger.info("ShopSphere backend ready. Multi-key indexes active.")
 

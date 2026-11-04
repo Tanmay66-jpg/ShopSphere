@@ -40,3 +40,4 @@ print("\n--- Files in frontend/public matching SS ---")
 for f in os.listdir(public_dir):
     if f.startswith('SS'):
         print(f"  {f} ({os.path.getsize(os.path.join(public_dir, f))} bytes)")
+
