@@ -19,6 +19,7 @@ export function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/shop" element={<SearchResultsPage />} />
             <Route path="/search" element={<SearchResultsPage />} />
             <Route path="/products/:id" element={<ProductDetailsPage />} />
             <Route path="/product/:id" element={<ProductDetailsPage />} />
