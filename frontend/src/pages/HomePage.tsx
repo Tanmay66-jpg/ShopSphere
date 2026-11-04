@@ -45,11 +45,11 @@ export function HomePage() {
             {/* Left: Editorial copy (~58% width on desktop) */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#8A8278] mb-3 block">
-                Autumn / Winter Catalogue
+                THE SHOPSPHERE EDIT
               </span>
               <h1 className="font-serif text-[42px] sm:text-[54px] lg:text-[64px] font-light tracking-tight leading-[1.08] text-[#1B1B1B] mb-5">
-                Fifty objects,<br />
-                <em>carefully chosen.</em>
+                Less browsing,<br />
+                <em>Better finding.</em>
               </h1>
               <p className="text-[15px] sm:text-[16px] text-[#5C5A56] leading-relaxed max-w-lg mb-8">
                 Electronics, fashion, home and accessories — all in one place. Curated and indexed for precision discovery.
