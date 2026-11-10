@@ -291,3 +291,4 @@ export function CartPage() {
     </div>
   );
 }
+

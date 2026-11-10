@@ -38,7 +38,17 @@ export function SyncStatusSection() {
           </h2>
         </div>
         <div className="flex items-center gap-3">
-          {data?.is_all_synced ? (
+          {loading && !data ? (
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#8A8278]/10 text-[#5C5A56] text-[12px] font-medium border border-[#D9D4CC]">
+              <span className="material-symbols-outlined text-[15px] animate-spin">refresh</span>
+              Checking Sync...
+            </span>
+          ) : error ? (
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#8B2020]/10 text-[#8B2020] text-[12px] font-medium border border-[#8B2020]/30">
+              <span className="material-symbols-outlined text-[15px]">cloud_off</span>
+              Backend Disconnected
+            </span>
+          ) : data?.is_all_synced ? (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#2D5A3D]/10 text-[#2D5A3D] text-[12px] font-medium border border-[#2D5A3D]/30">
               <span className="material-symbols-outlined text-[15px]">check_circle</span>
               All Structures 100% In Sync
