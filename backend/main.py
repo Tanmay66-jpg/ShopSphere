@@ -91,16 +91,19 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS configuration for local Vite development
+# CORS configuration for production Vercel and local development
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://shop-sphere-eta-teal.vercel.app",
+        "https://shopsphere-jt5n.onrender.com",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "*",
     ],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -112,6 +115,7 @@ app.include_router(adsa_live_router, prefix="/api/adsa")
 
 
 @app.get("/", tags=["Root"])
+@app.head("/", tags=["Root"], include_in_schema=False)
 def root_info() -> dict[str, str]:
     """Root metadata endpoint."""
     return {

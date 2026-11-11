@@ -1,10 +1,10 @@
 import type { Product, ProductFilterState, SearchResponse } from '../types/product';
 import type { TreeStructureResponse, OperationTraceResponse, BenchmarkResponse } from '../types/adsa';
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+import { API_BASE_URL } from './apiConfig';
 
 async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE_URL}${url}`, {
+  const endpoint = url.startsWith('/') ? url : `/${url}`;
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     headers: {
       'Content-Type': 'application/json',
       ...options?.headers,
@@ -13,7 +13,7 @@ async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
   });
 
   if (!response.ok) {
-    let errorDetail = 'API request failed';
+    let errorDetail = `API request failed (${response.status} ${response.statusText})`;
     try {
       const err = await response.json();
       errorDetail = err.detail || JSON.stringify(err);

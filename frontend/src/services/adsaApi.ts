@@ -3,10 +3,11 @@
  * Connects to /api/adsa/ endpoints to inspect real database data structures.
  */
 
-const API_BASE = '/api/adsa';
+import { ADSA_API_BASE_URL } from './apiConfig';
 
 async function fetchAdsaJson<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
-  const url = `${API_BASE}${endpoint}`;
+  const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const url = `${ADSA_API_BASE_URL}${path}`;
   const res = await fetch(url, {
     ...options,
     headers: {
@@ -187,4 +188,3 @@ export const adsaApi = {
   getInsertionOrder: () =>
     fetchAdsaJson<InsertionOrderResponse>('/insertion-order'),
 };
-
